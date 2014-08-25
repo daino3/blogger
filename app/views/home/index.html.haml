@@ -11,7 +11,7 @@
       %div.large-2.columns.hide-for-small
         = image_tag("bio.jpg", class: 'section-image')
       %div.large-10.columns
-        / = raw coderay(@page.content_for(:about_me))
+        = render partial: "shared/markdown", locals: { text: @bio.body }
     %hr
     
     %div.hide-for-small
@@ -26,7 +26,7 @@
         %div.large-2.columns
           = image_tag("education.jpg", class: 'section-image')
         %div.large-10.columns
-          / = raw coderay(@page.content_for(:education))      
+          = render partial: "shared/markdown", locals: { text: @edu.body }     
       %hr
 
       %div.row

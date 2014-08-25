@@ -4,31 +4,30 @@ gem 'rails', '3.2.19'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'activeadmin'
 gem 'pg'
+gem 'redcarpet'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'foundation-rails'
   gem 'haml'
   gem 'jquery-ui-rails'
   gem 'sass-rails',   '~> 3.2.3'
-
+  gem 'compass-rails' # you need this or you get an err
+  gem 'zurb-foundation', '~> 4.0.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'activeadmin'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'zeus-parallel_tests'
   gem "better_errors"
   gem "binding_of_caller"
+  gem "pry"
 end
 
 gem 'jquery-rails'

@@ -1,9 +1,14 @@
 %head
   %title Blogger
-  = stylesheet_link_tag    "application", :media => "all" 
+  = stylesheet_link_tag    "application", :media => "all"
   = javascript_include_tag "application" 
-  = csrf_meta_tags 
   = javascript_include_tag "vendor/modernizr"
-  %meta{name: "viewport", content: "width=device-width, initial-scale: 1.0"}
+  = csrf_meta_tags 
+  
+  %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+  %meta{charset: "utf-8"}
 %body
+  = render partial: "layouts/new_header"
   = yield
+%footer
+  = render partial: "layouts/footer"
