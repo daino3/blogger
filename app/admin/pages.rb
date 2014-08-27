@@ -1,9 +1,8 @@
 ActiveAdmin.register Page do
 
   collection_action :render_markdown do 
-    binding.pry
     @text = params["text"]
-    render partial: "shared/markdown"
+    render partial: "shared/markdown", locals: { text: @text }
   end
 
   index do                            

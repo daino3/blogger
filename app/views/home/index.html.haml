@@ -10,36 +10,36 @@
     %div.row
       %div.large-2.columns.hide-for-small
         = image_tag("bio.jpg", class: 'section-image')
-      %div.large-10.columns
+      %div.large-10.columns.resume-content
         = render partial: "shared/markdown", locals: { text: @bio.body }
-    %hr
+    %hr.carved
     
     %div.hide-for-small
       %div.row
         %div.large-2.columns
           = image_tag("resume.jpg", class: 'section-image')
-        %div.large-10.columns
-          / = raw coderay(@page.content_for(:work_experience))
+        %div.large-10.columns.resume-content
+          = render partial: "shared/markdown", locals: { text: @work.body }
       %hr
       
       %div.row
         %div.large-2.columns
           = image_tag("education.jpg", class: 'section-image')
-        %div.large-10.columns
+        %div.large-10.columns.resume-content
           = render partial: "shared/markdown", locals: { text: @edu.body }     
       %hr
 
       %div.row
         %div.large-2.columns
           = image_tag("projects.jpg", class: 'section-image')
-        %div.large-10.columns
+        %div.large-10.columns.resume-content
           / = raw coderay(@page.content_for(:projects))      
       %hr
 
       %div.row
         %div.large-2.columns
           = image_tag("skills.jpg", class: 'section-image')
-        %div.large-10.columns#skills
+        %div.large-10.columns.resume-content
           / = raw coderay(@page.content_for(:skills))      
       %hr
 

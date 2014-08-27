@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140825031950) do
+ActiveRecord::Schema.define(:version => 20140826135816) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,12 +46,20 @@ ActiveRecord::Schema.define(:version => 20140825031950) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "blog_categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "number_of_posts"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.date     "published_at"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "blog_category_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -67,5 +75,24 @@ ActiveRecord::Schema.define(:version => 20140825031950) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "blog_post_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "taggings", ["blog_post_id"], :name => "index_taggings_on_blog_post_id"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.integer  "blog_category_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "tags", ["blog_category_id"], :name => "index_tags_on_blog_category_id"
 
 end

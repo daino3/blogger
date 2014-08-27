@@ -4,9 +4,6 @@ gem 'rails', '3.2.19'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'activeadmin'
-gem 'pg'
-gem 'redcarpet'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,14 +20,18 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'zeus-parallel_tests'
   gem "better_errors"
   gem "binding_of_caller"
   gem "pry"
+  gem 'railroady' # schema visualizer
+  gem 'rspec-rails'
+  gem 'zeus-parallel_tests'
 end
 
+gem 'activeadmin'
 gem 'jquery-rails'
+gem 'pg'
+gem 'redcarpet'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

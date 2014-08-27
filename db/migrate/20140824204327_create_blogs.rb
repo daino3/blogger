@@ -17,7 +17,6 @@ class CreateBlogs < ActiveRecord::Migration
   end
 
   def down
-    drop_table :blog_posts
-    drop_table :comments
+    drop_table :blog_posts, :comments
   end
 end
