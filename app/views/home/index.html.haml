@@ -11,6 +11,7 @@
       %div.large-2.columns.hide-for-small
         = image_tag("bio.jpg", class: 'section-image')
       %div.large-10.columns.resume-content
+        %h1 About Me
         = render partial: "shared/markdown", locals: { text: @bio.body }
     %hr.carved
     
@@ -19,6 +20,7 @@
         %div.large-2.columns
           = image_tag("resume.jpg", class: 'section-image')
         %div.large-10.columns.resume-content
+          %h1 Work
           = render partial: "shared/markdown", locals: { text: @work.body }
       %hr
       
@@ -26,6 +28,7 @@
         %div.large-2.columns
           = image_tag("education.jpg", class: 'section-image')
         %div.large-10.columns.resume-content
+          %h1 Education
           = render partial: "shared/markdown", locals: { text: @edu.body }     
       %hr
 
@@ -33,14 +36,16 @@
         %div.large-2.columns
           = image_tag("projects.jpg", class: 'section-image')
         %div.large-10.columns.resume-content
-          / = raw coderay(@page.content_for(:projects))      
+          %h1 Projects
+          = render partial: "shared/markdown", locals: { text: @projects.body }     
       %hr
 
       %div.row
         %div.large-2.columns
           = image_tag("skills.jpg", class: 'section-image')
         %div.large-10.columns.resume-content
-          / = raw coderay(@page.content_for(:skills))      
+          %h1 Skills
+          = render partial: "shared/markdown", locals: { text: @skills.body }     
       %hr
 
   %div.large-6.small-12.columns
@@ -54,7 +59,7 @@
         Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Suspendisse ultrices ornare tempor...
 
       %h6
-        %a{href: "#"} Read More »
+        = link_to "Read More »", 
     %div.panel.hide-for-small
       %h5
         %a{href: "#"} Post Title 2 »

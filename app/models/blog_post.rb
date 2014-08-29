@@ -4,4 +4,6 @@ class BlogPost < ActiveRecord::Base
 
   belongs_to :blog_category
   has_many :comments
+
+  scope :recent, ->(arg) { where("created_at > ?", arg ) } 
 end
