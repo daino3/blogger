@@ -1,14 +1,22 @@
 class HomeController < ApplicationController
 
   def index
-    @bio = Page.find_by_name("Biography")
-    @edu = Page.find_by_name("Education")
-    @work = Page.find_by_name("Work Experience")
-    @projects = Page.find_by_name("Projects")
-    @skills = Page.find_by_name("Skills")
+    pages = Page.all
+    @bio = select(pages, "Biography")
+    @edu = select(pages, "Education")
+    @work = select(pages, "Work Experience")
+    @projects = select(pages, "Projects")
+    @skills = select(pages, "Skills")
+    posts = BlogPost.recent(6.months.ago).limit(5)
 
-    posts = BlogPost.recent(6.months.ago)
-    @feature_post, @other_posts = posts.shift, posts.limit(3)
+    @featured_post = posts.shift
+    @other_posts = posts
+  end
+
+  private 
+
+  def select(selection, page_name)
+    selection.find { |page| page.name == page_name }
   end
 
 end

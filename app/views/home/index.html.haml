@@ -53,18 +53,16 @@
     %hr
     %div.panel
       %h5
-        %a{href: "#"} Post Title 1
+        %a{href: "#"}= @featured_post.title
 
       %h6.subheader
-        Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Suspendisse ultrices ornare tempor...
+        = @featured_post.summary
 
       %h6
-        = link_to "Read More »", 
-    %div.panel.hide-for-small
-      %h5
-        %a{href: "#"} Post Title 2 »
+        = link_to "Read More »"
+    - @other_posts.each do |post|
+      %div.panel.hide-for-small
+        %h5
+          = link_to "#{post.title} »", blog_post_path(post.id)
 
-    %div.panel.hide-for-small
-      %h5
-        %a{href: "#"} Post Title 3 »
     %a{href: "#", class: 'right'} Go To Blog »

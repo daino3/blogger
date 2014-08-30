@@ -1,9 +1,9 @@
 class BlogPost < ActiveRecord::Base
   include Taggable
-  attr_accessible :title, :body, :published_at, :tag_list
+  attr_accessible :title, :body, :published_at, :tag_list, :summary, :blog_category_id
 
   belongs_to :blog_category
   has_many :comments
 
-  scope :recent, ->(arg) { where("created_at > ?", arg ) } 
+  scope :recent, ->(arg) { where("created_at > ?", arg ).order("created_at DESC") } 
 end

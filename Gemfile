@@ -34,6 +34,7 @@ gem 'factory_girl_rails'
 gem 'jquery-rails'
 gem "paperclip"
 gem 'pg'
+gem 'rack-mini-profiler'
 gem 'redcarpet'
 gem 'rmagick', '2.13.2'
 
