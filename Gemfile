@@ -22,12 +22,15 @@ end
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "lorem-ipsum"
+  gem "faker"
   gem "pry"
   gem 'railroady' # schema visualizer
   gem 'rspec-rails'
   gem 'zeus-parallel_tests'
 end
+
+gem 'spring', group: :development
+gem "spring-commands-rspec", group: :development
 
 gem 'activeadmin'
 gem 'factory_girl_rails'

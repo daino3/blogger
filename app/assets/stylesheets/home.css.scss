@@ -1,0 +1,40 @@
+$header-height: 100px;
+
+.header-container {
+  position: relative;
+  width: 100%; /* for IE 6 */
+
+  .background-image {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+  .background-image-text {
+    color: white;
+    font-family: "Papyrus";
+    font-style: italic;
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
+  }
+  .home-header {
+    position: absolute;
+    top: 0;
+    height: $header-height;
+    .nav-section {
+      top: 20px;
+    }
+    .site-title {
+      top: 5px;
+    }
+    .home-header-title {
+      margin: 0px;
+    }
+  }
+  a {
+    color: white;
+  }
+}
+
+

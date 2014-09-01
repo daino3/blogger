@@ -1,0 +1,3 @@
+@mixin vertically-centered($container-height: 0) {
+  line-height: $container-height;
+}

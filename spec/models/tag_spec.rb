@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Tag, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:blog_post) { FactoryGirl.create(:blog_post) }
+  let(:tag)       { FactoryGirl.create(:tag) }
+
+  describe "#"
+  it "tags a blog post" do
+    blog_post
+  end
 end

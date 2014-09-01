@@ -1,0 +1,29 @@
+%div{ class: "row"}
+  %div{ class: "large-12 columns"}
+    %div{ class: "panel"}
+      %h1 Welcome to the scary place that is my thoughts...
+
+%div{ class: "row" }
+  %div{ class: "large-3 columns" }
+    %div{ class: "panel"}
+      %h5
+        %a{href: "#"} Topics
+      %div{ class: "section-container vertical-nav", data: {data:"section", options: "deep_linking: false; one_up: true"} }
+        - @categories.each do |category|
+          %section{ class: "section" }
+            %h5{class: "title"}
+              %a{href: "#"}= category.name
+
+  %div{ class: "large-9 columns"}
+    %div{ class: "row"}
+      - @posts.each do |post|
+        %div{ class: "large-1 columns small-3"}
+          %img{src: "http://placehold.it/80x80&text=[img]"}
+        %div{ class: "large-11 columns"}
+          %p
+            %strong
+              = link_to post.title, blog_post_path(post.id)
+          %p= post.summary
+
+          %h6= "#{post.comments.count} Comments | #{post.number_of_views} Views"
+        %hr

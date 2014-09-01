@@ -3,7 +3,7 @@ module Taggable
 
   included do
     def self.tagged_with(name)
-      Tag.find_by_name!(name).articles
+      Tag.find_by_name!(name).blog_posts
     end
 
     def self.tag_counts

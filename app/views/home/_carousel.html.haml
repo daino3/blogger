@@ -1,25 +1,26 @@
-/ %div.orbit-container.large-12.columns
-/   %ul.example-orbit.orbit-slides-container(data-orbit)
-/   - @page.images.each_with_index do |image, index|
-/     - status = index == 0 ? 'active' : 'inactive'
-/     %li{class: "#{status}"}
-/       = image_tag image.thumbnail.url, alt: "slide #{index + 1}"        
-/       %div.orbit-caption
-/         = "Caption #{index + 1}"
-/   - # Navigation Arrows
-/   %a 
-/     = link_to "Prev", "#", class: "orbit-prev"
-/   %a 
-/     = link_to "Next", "#", class: "orbit-next"
-/   - # Slide Numbers
-/   %div.orbit-slide-number
-/     %span 1 of 
-/     %span 3
-/   - #Timer and Play/Pause Button
-/   %div.orbit-timer
-/     %div.orbit-progress
-/ - # Bullets
-/ %ol.orbit-bullets
-/ - @page.images.each_with_index do |image, index|
-/   - status = index == 0 ? 'active' : 'inactive'  
-/   %li{class: "#{status}", data: {orbit_slide_number: "#{index + 1}"}}
+
+%div.orbit-container.large-12.columns
+  %ul.example-orbit.orbit-slides-container(data-orbit)
+  - @page.images.each_with_index do |image, index|
+    - status = index == 0 ? 'active' : 'inactive'
+    %li{class: "#{status}"}
+      = image_tag image.thumbnail.url, alt: "slide #{index + 1}"
+      %div.orbit-caption
+        = "Caption #{index + 1}"
+  - # Navigation Arrows
+  %a
+    = link_to "Prev", "#", class: "orbit-prev"
+  %a
+    = link_to "Next", "#", class: "orbit-next"
+  - # Slide Numbers
+  %div.orbit-slide-number
+    %span 1 of
+    %span 3
+  - #Timer and Play/Pause Button
+  %div.orbit-timer
+    %div.orbit-progress
+- # Bullets
+%ol.orbit-bullets
+- @page.images.each_with_index do |image, index|
+  - status = index == 0 ? 'active' : 'inactive'
+  %li{class: "#{status}", data: {orbit_slide_number: "#{index + 1}"}}

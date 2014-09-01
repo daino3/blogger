@@ -1,0 +1,31 @@
+%div{ class: "row"}
+  %div{ class: "large-12 columns"}
+    %div{ class: "panel"}
+      %h1= @post.title
+
+%div{ class: "row"}
+  %div{ class: "large-1 columns small-3"}
+    %img{src: "http://placehold.it/80x80&text=[img]"}
+  %div{ class: "large-11 columns"}
+    %p= @post.body
+    %ul{class: "inline-list"}
+      %li
+        %a{href: ""} Comment
+      %li
+        %a{href: ""} Share
+
+    %h6= "#{@post.comments.count} Comments"
+    %div{ class: "row"}
+      %div{ class: "large-1 columns small-3"}
+        %img{src: "http://placehold.it/50x50&text=[img]"}
+      %div{ class: "large-11 columns"}
+        %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck}duis velit. Aute in reprehenderit
+    
+    %hr
+
+    %div{ class: "row"}
+      %div{ class: "large-1 columns small-3"}
+        %img{src: "http://placehold.it/50x50&text=[img]"}
+      %div{ class: "large-11 columns"} 
+        %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck}duis velit. Aute in reprehenderit
+    %hr

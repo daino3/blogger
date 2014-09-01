@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140830011118) do
+ActiveRecord::Schema.define(:version => 20140901001608) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -57,24 +57,22 @@ ActiveRecord::Schema.define(:version => 20140830011118) do
     t.string   "title"
     t.text     "body"
     t.date     "published_at"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "blog_category_id"
     t.text     "summary"
+    t.integer  "number_of_views",  :default => 0
   end
 
   create_table "comments", :force => true do |t|
     t.string   "author"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "blog_post_id"
   end
 
-  create_table "galleries", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+  add_index "comments", ["blog_post_id"], :name => "index_comments_on_blog_post_id"
 
   create_table "pages", :force => true do |t|
     t.string   "name"
@@ -85,10 +83,9 @@ ActiveRecord::Schema.define(:version => 20140830011118) do
 
   create_table "photos", :force => true do |t|
     t.string   "title"
-    t.string   "url"
-    t.integer  "gallery_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "file_location"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "taggings", :force => true do |t|

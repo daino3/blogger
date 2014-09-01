@@ -1,12 +1,9 @@
-%section{id: 'gallery', class: 'hide-for-small row'}
-  = render partial: 'carousel', locals: { images: @images }
-
 %section{id: 'main-body-home', class: 'row'}
   %div.large-6.small-12.columns
 
     %h4 My Digital Resume
     %hr
-    
+
     %div.row
       %div.large-2.columns.hide-for-small
         = image_tag("bio.jpg", class: 'section-image')
@@ -14,7 +11,7 @@
         %h1 About Me
         = render partial: "shared/markdown", locals: { text: @bio.body }
     %hr.carved
-    
+
     %div.hide-for-small
       %div.row
         %div.large-2.columns
@@ -23,13 +20,13 @@
           %h1 Work
           = render partial: "shared/markdown", locals: { text: @work.body }
       %hr
-      
+
       %div.row
         %div.large-2.columns
           = image_tag("education.jpg", class: 'section-image')
         %div.large-10.columns.resume-content
           %h1 Education
-          = render partial: "shared/markdown", locals: { text: @edu.body }     
+          = render partial: "shared/markdown", locals: { text: @edu.body }
       %hr
 
       %div.row
@@ -37,7 +34,7 @@
           = image_tag("projects.jpg", class: 'section-image')
         %div.large-10.columns.resume-content
           %h1 Projects
-          = render partial: "shared/markdown", locals: { text: @projects.body }     
+          = render partial: "shared/markdown", locals: { text: @projects.body }
       %hr
 
       %div.row
@@ -45,7 +42,7 @@
           = image_tag("skills.jpg", class: 'section-image')
         %div.large-10.columns.resume-content
           %h1 Skills
-          = render partial: "shared/markdown", locals: { text: @skills.body }     
+          = render partial: "shared/markdown", locals: { text: @skills.body }
       %hr
 
   %div.large-6.small-12.columns
