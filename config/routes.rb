@@ -9,6 +9,8 @@ Blogger::Application.routes.draw do
     resource :comments
   end
 
+  post 'search' => 'search#find', as: 'search'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

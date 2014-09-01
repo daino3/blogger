@@ -1,4 +1,6 @@
 class Tag < ActiveRecord::Base
+  include Searchable
+
   attr_accessible :name, :blog_category_id
 
   belongs_to :blog_category
@@ -6,4 +8,12 @@ class Tag < ActiveRecord::Base
   has_many   :blog_posts, through: :taggings
 
   validates_presence_of :blog_category_id
+
+  settings do
+    mappings do
+      indexes :id, :index => :no
+      # Search these fields
+      indexes :name, :analyzer => 'snowball'
+    end
+  end
 end

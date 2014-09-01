@@ -33,6 +33,9 @@ gem 'spring', group: :development
 gem "spring-commands-rspec", group: :development
 
 gem 'activeadmin'
+gem 'elasticsearch-extensions'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 gem 'factory_girl_rails'
 gem 'jquery-rails'
 gem "paperclip"
@@ -40,6 +43,7 @@ gem 'pg'
 gem 'rack-mini-profiler'
 gem 'redcarpet'
 gem 'rmagick', '2.13.2'
+gem 'simple_form'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

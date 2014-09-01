@@ -1,4 +1,4 @@
-%section{id: 'main-body-home', class: 'row'}
+%div.row.home-body
   %div.large-6.small-12.columns
 
     %h4 My Digital Resume
@@ -43,7 +43,6 @@
         %div.large-10.columns.resume-content
           %h1 Skills
           = render partial: "shared/markdown", locals: { text: @skills.body }
-      %hr
 
   %div.large-6.small-12.columns
     %h4 Blog

@@ -1,17 +1,12 @@
 %div.header-container.text-center
   = image_tag(@image.get_url, class: "background-image")
-  %h2.background-image-text
+  %h3.background-image-text
     "A mind that is stretched by new experiences can never return to its original dimensions"
   %div.row.home-header
     %div.large-3.columns.nav-section.site-title
-      %h1.home-header-title= link_to "Dainjar.us", "#"
+      %h1.home-header-title= link_to "Dainjar.us"
 
-    %div.large-6.columns.nav-section
-      %div{ class: "row collapse postfix-round" }
-        %div{ class: "small-9 columns" }
-          %input{ type: "text", placeholder: "Value"}
-        %div{ class: "small-3 columns" }
-          %a{ href: "#", class: "button postfix"} Go
+    = render partial: "shared/search_form"
 
     %div.large-3.columns.nav-section.right
       %ul.inline-list
