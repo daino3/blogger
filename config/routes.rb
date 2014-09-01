@@ -10,6 +10,7 @@ Blogger::Application.routes.draw do
   end
 
   post 'search' => 'search#find', as: 'search'
+  get 'search_tags/:id' => 'tags#show', as: 'tags'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

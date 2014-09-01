@@ -1,7 +1,10 @@
 %div{ class: "row"}
   %div{ class: "large-12 columns"}
     %div{ class: "panel"}
-      %h1 Welcome to the scary place that is my thoughts...
+      - if @tag
+        %h1= "Tagged with #{@tag.name}"
+      - else
+        %h1 Welcome to the scary place that is my thoughts...
 
 %div{ class: "row" }
   %div{ class: "large-3 columns" }
@@ -10,9 +13,11 @@
         %a{href: "#"} Topics
       %div{ class: "section-container vertical-nav", data: {data:"section", options: "deep_linking: false; one_up: true"} }
         - @categories.each do |category|
-          %section{ class: "section" }
+          %section{ class: "section", role: "expandable" }
             %h5{class: "title"}
               %a{href: "#"}= category.name
+            %section{ role: "tag-well", style: "display:none" }
+              = render partial: "blog_posts/tag_well", locals: { category: category }
 
   %div{ class: "large-9 columns"}
     %div{ class: "row"}

@@ -1,0 +1,16 @@
+.tag_cloud {
+
+}
+
+
+.tag {
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid gray;
+  background-color: #E6E6FA;
+  &:hover  { cursor: pointer; }
+  &.small  { font-size: 0.8em; }
+  &.medium { font-size: 1.2em; }
+  &.large  { font-size: 1.5em; }
+}
