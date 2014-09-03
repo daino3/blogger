@@ -1,0 +1,39 @@
+@mixin btn-video-player-share($iconColor, $font-size) {
+  @extend .btn-clean;
+  @extend .rounded-corners;
+
+  display: inline-block;
+
+  .icon-font {
+    color: $iconColor;
+    font-size: $font-size;
+  }
+}
+
+.btn-icon {
+  @include btn-video-player-share($brand-primary, 200px);
+}
+
+.btn-clean {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: $brand-white;
+  cursor: pointer;
+  font-family: $baseFontFamily;
+  font-size: 10px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  width: auto;
+}
+
+* {
+  outline:none;
+}
+
+.rounded-corners {
+  border-radius: 5px;
+}

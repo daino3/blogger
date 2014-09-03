@@ -8,41 +8,41 @@
       %div.large-2.columns.hide-for-small
         = image_tag("bio.jpg", class: 'section-image')
       %div.large-10.columns.resume-content
-        %h1 About Me
         = render partial: "shared/markdown", locals: { text: @bio.body }
-    %hr.carved
+        %button.btn-icon
+          %i.icon-font.learn
+    %hr
 
-    %div.hide-for-small
-      %div.row
-        %div.large-2.columns
-          = image_tag("resume.jpg", class: 'section-image')
-        %div.large-10.columns.resume-content
-          %h1 Work
-          = render partial: "shared/markdown", locals: { text: @work.body }
-      %hr
+    %div.row.hide-for-small
+      %div.large-2.columns.text-center
+        = image_tag("resume.jpg", class: 'section-image')
+        %h6 Work
+      %div.large-10.columns.resume-content
+        = render partial: "shared/markdown", locals: { text: @work.body }
+    %hr
 
-      %div.row
-        %div.large-2.columns
-          = image_tag("education.jpg", class: 'section-image')
-        %div.large-10.columns.resume-content
-          %h1 Education
-          = render partial: "shared/markdown", locals: { text: @edu.body }
-      %hr
+    %div.row.hide-for-small
+      %div.large-2.columns.text-center
+        = image_tag("education.jpg", class: 'section-image')
+        %h6 Education
+      %div.large-10.columns.resume-content
+        = render partial: "shared/markdown", locals: { text: @edu.body }
+    %hr
 
-      %div.row
-        %div.large-2.columns
-          = image_tag("projects.jpg", class: 'section-image')
-        %div.large-10.columns.resume-content
-          %h1 Projects
-          = render partial: "shared/markdown", locals: { text: @projects.body }
-      %hr
+    %div.row.hide-for-small
+      %div.large-2.columns.text-center
+        = image_tag("projects.jpg", class: 'section-image')
+        %h6 Projects
+      %div.large-10.columns.resume-content
+        = render partial: "shared/markdown", locals: { text: @projects.body }
+    %hr
 
-      %div.row
-        %div.large-2.columns
-          = image_tag("skills.jpg", class: 'section-image')
-        %div.large-10.columns.resume-content
-          %h1 Skills
-          = render partial: "shared/markdown", locals: { text: @skills.body }
+    %div.row.hide-for-small
+      %div.large-2.columns.text-center
+        = image_tag("skills.jpg", class: 'section-image')
+        %h6 Skills
+      %div.large-10.columns.resume-content
+        = render partial: "shared/markdown", locals: { text: @skills.body }
 
   %div.large-6.small-12.columns
     %h4 Blog

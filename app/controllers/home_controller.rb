@@ -2,11 +2,15 @@ class HomeController < ApplicationController
 
   def index
     pages = Page.all
-    @bio = select(pages, "Biography")
-    @edu = select(pages, "Education")
-    @work = select(pages, "Work Experience")
+    @bio      = select(pages, "Biography")
+    @edu      = select(pages, "Education")
+    @work     = select(pages, "Work Experience")
     @projects = select(pages, "Projects")
-    @skills = select(pages, "Skills")
+    @skills   = select(pages, "Skills")
+
+    # implement this
+    # @content_areas = [bio, edu, work, projects, skills]
+
     posts = BlogPost.recent(6.months.ago).limit(5)
 
     @image = Photo.find_by_title("skyline")

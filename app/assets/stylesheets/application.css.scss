@@ -1,7 +1,15 @@
 
+// mixins and variables
 @import "mixins/vertically_centered";
+@import "variables/colors";
+// font icons
+@import "icons/icons";
+@import "icons/buttons";
 
+// foundation
 @import "foundation_and_overrides";
+
+// stylsheets
 @import "footer";
 @import "carousel";
 @import "coderay";
