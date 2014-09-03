@@ -16,10 +16,8 @@ $icon-awesome: "FontAwesome";
 $icon-fonts:
   // Glyphicons and Halflings
   // Ordered A-Z
-  stocks "\f012" $icon-awesome,
-  learn "\f179" $icon-awesome,
-  share "\f0E6" $icon-awesome,
-  learn "\f19d" $icon-awesome
+  down-arrow "\f13a" $icon-awesome,
+  up-arrow "\f139" $icon-awesome
 ;
 
 @each $icon in $icon-fonts {

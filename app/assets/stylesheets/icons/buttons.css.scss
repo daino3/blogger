@@ -11,7 +11,7 @@
 }
 
 .btn-icon {
-  @include btn-video-player-share($brand-primary, 200px);
+  @include btn-video-player-share($brand-primary, 30px);
 }
 
 .btn-clean {
