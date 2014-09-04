@@ -4,11 +4,14 @@ $ ->
   ContentWindowSetter.setHeightDataAttributes()
 
   $("[role='expandable']").on("click", ->
+    $selectedCategory       = $(this).find("[role='tag-well']")
+    selectedCategoryNumber  = $selectedCategory.attr("data-category-number")
     $.each($("[role='tag-well']"), (index, value)->
-      if $(value).is(':visible')
+      currentCategoryNumber = $(value).attr("data-category-number")
+      if $(value).is(':visible') && (currentCategoryNumber != selectedCategoryNumber)
         $(value).slideToggle("fast")
     )
-    $(this).find("[role='tag-well']").slideToggle("fast")
+    $selectedCategory.slideToggle("fast")
   )
 
   $("[role='show-more']").on("click", ->

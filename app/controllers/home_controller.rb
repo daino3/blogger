@@ -6,7 +6,6 @@ class HomeController < ApplicationController
     @edu      = select(pages, "Education")
     @work     = select(pages, "Work Experience")
     @projects = select(pages, "Projects")
-    @skills   = select(pages, "Skills")
 
     # implement this
     # @content_areas = [bio, edu, work, projects, skills]

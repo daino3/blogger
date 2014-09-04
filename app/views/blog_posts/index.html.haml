@@ -1,23 +1,21 @@
 %div{ class: "row"}
-  %div{ class: "large-12 columns"}
-    %div{ class: "panel"}
-      - if @tag
-        %h1= "Tagged with #{@tag.name}"
-      - else
-        %h1 Welcome to the scary place that is my thoughts...
+  %div{ class: "large-12 columns panel"}
+    - if @tag
+      %h1= "Tagged with #{@tag.name}"
+    - else
+      %h1 Welcome to the scary place that is my thoughts...
 
 %div{ class: "row" }
-  %div{ class: "large-3 columns" }
-    %div{ class: "panel"}
-      %h5
-        %a{href: "#"} Topics
-      %div{ class: "section-container vertical-nav", data: {data:"section", options: "deep_linking: false; one_up: true"} }
-        - @categories.each do |category|
-          %section{ class: "section", role: "expandable" }
-            %h5{class: "title"}
-              %a{href: "#"}= category.name
-            %section{ role: "tag-well", style: "display:none" }
-              = render partial: "blog_posts/tag_well", locals: { category: category }
+  %div{ class: "large-3 columns panel" }
+    %h5
+      %a{href: "#"} Topics
+    %div{ class: "section-container vertical-nav", data: {data:"section", options: "deep_linking: false; one_up: true"} }
+      - @categories.each_with_index do |category, index|
+        %section{ class: "section", role: "expandable" }
+          %h5{class: "title"}
+            %a{href: "#"}= category.name
+          %section{ role: "tag-well", style: "display:none", data: { category_number: index + 1 } }
+            = render partial: "blog_posts/tag_well", locals: { category: category }
 
   %div{ class: "large-9 columns"}
     %div{ class: "row"}

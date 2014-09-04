@@ -35,14 +35,6 @@
         = render partial: "shared/markdown", locals: { text: @projects.body }
     = render partial: "shared/custom_page_break"
 
-    %div.row.hide-for-small
-      %div.large-2.columns.text-center
-        = image_tag("skills.jpg", class: 'section-image')
-        %h6 Skills
-      %div.large-10.columns.resume-content{ role: "expandable-content" }
-        = render partial: "shared/markdown", locals: { text: @skills.body }
-    = render partial: "shared/custom_page_break"
-
   %div.large-6.small-12.columns
     %h4 Blog
     %hr
