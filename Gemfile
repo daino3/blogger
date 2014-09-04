@@ -38,6 +38,7 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'factory_girl_rails'
 gem 'jquery-rails'
+gem 'kaminari'
 gem "paperclip"
 gem 'pg'
 gem 'rack-mini-profiler'
