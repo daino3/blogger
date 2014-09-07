@@ -5,6 +5,11 @@ ActiveAdmin.register BlogPost do
     end
   end
 
+  collection_action :render_markdown do
+    @text = params["text"]
+    render partial: "shared/markdown", locals: { text: @text }
+  end
+
   index do
     column :title
     column :summary
@@ -37,8 +42,11 @@ ActiveAdmin.register BlogPost do
       f.input :tags, as: :check_boxes, multiple: true, collection: Tag.all.collect {|x| [x.name, x.id] }
       f.input :title
       f.input :summary, input_html: { rows: 2, cols: 1 }
-      f.input :body
+      f.input :body, input_html: { data: {url: render_markdown_admin_blog_posts_path(f.object.id)} }
       f.input :published_at, as: :datepicker
+    end
+    f.inputs "Post Format" do
+      f.template.render partial: "shared/markdown_container", locals: {text: f.object.body}
     end
     f.actions
   end

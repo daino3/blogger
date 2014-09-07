@@ -1,9 +1,16 @@
 $(document).on("keyup", "[name='page[body]']", ()->
-  $e   = $(this)
+  renderMarkdown(@)
+)
+
+$(document).on("keyup", "[name='blog_post[body]']", ()->
+  renderMarkdown(@)
+)
+
+
+renderMarkdown = (ele)->
+  $e   = $(ele)
   text = $e.val()
   url  = $e.attr("data-url")
-
-  debugger
 
   $.ajax({
     url: url,
@@ -11,4 +18,3 @@ $(document).on("keyup", "[name='page[body]']", ()->
     success: (response) ->
       $("[role='markdown-container']").html(response)
     })
-  )
