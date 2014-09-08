@@ -12,7 +12,6 @@
 // stylsheets
 @import "footer";
 @import "carousel";
-@import "coderay";
 @import "header";
 @import "layout";
 @import "projects";
@@ -21,3 +20,6 @@
 @import "home";
 @import "tag_cloud";
 @import "custom_page_break";
+
+// code
+@import "pygments";

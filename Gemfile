@@ -41,10 +41,12 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem "paperclip"
 gem 'pg'
+gem 'pygments.rb'
 gem 'rack-mini-profiler'
 gem 'redcarpet'
 gem 'rmagick', '2.13.2'
 gem 'simple_form'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

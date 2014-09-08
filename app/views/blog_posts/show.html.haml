@@ -7,7 +7,7 @@
   %div{ class: "large-1 columns small-3"}
     %img{src: "http://placehold.it/80x80&text=[img]"}
   %div{ class: "large-11 columns"}
-    %p= @post.body
+    = render partial: "shared/markdown_container", locals: { text: @post.body }
     %ul{class: "inline-list"}
       %li
         %a{href: ""} Comment
@@ -20,12 +20,12 @@
         %img{src: "http://placehold.it/50x50&text=[img]"}
       %div{ class: "large-11 columns"}
         %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck}duis velit. Aute in reprehenderit
-    
+
     %hr
 
     %div{ class: "row"}
       %div{ class: "large-1 columns small-3"}
         %img{src: "http://placehold.it/50x50&text=[img]"}
-      %div{ class: "large-11 columns"} 
+      %div{ class: "large-11 columns"}
         %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck}duis velit. Aute in reprehenderit
     %hr
