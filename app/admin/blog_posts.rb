@@ -1,4 +1,6 @@
 ActiveAdmin.register BlogPost do
+  config.batch_actions = true
+
   controller do
     def scoped_collection
       BlogPost.includes(:tags)
@@ -21,6 +23,7 @@ ActiveAdmin.register BlogPost do
   end
 
   index do
+    selectable_column
     column :title
     column :summary
     column :body do |f|
@@ -48,7 +51,7 @@ ActiveAdmin.register BlogPost do
   end
 
 
-  form do |f|
+  form :html => { :multipart => true } do |f|
     f.inputs do
       f.input "selected_tags", as: :hidden, value: f.object.tags_array
       f.input :blog_category, collection: BlogCategory.all.collect {|x| [x.name, x.id] }
@@ -57,6 +60,7 @@ ActiveAdmin.register BlogPost do
       f.input :summary, input_html: { rows: 2, cols: 1 }
       f.input :body, input_html: { data: {url: render_markdown_admin_blog_posts_path(f.object.id)} }
       f.input :published_at, as: :datepicker
+      f.input :photo, :as => :file
     end
     f.inputs "Post Format" do
       f.template.render partial: "shared/markdown_container", locals: {text: f.object.body}

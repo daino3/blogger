@@ -1,5 +1,5 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :url, :title, :url_file_name, :gallery_id, :file_location
+  attr_accessible :url, :title, :url_file_name, :file_location
 
   attr_accessor :url_file_name
 

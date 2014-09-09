@@ -1,15 +1,17 @@
 ActiveAdmin.register Page do
+  config.batch_actions = true
 
-  collection_action :render_markdown do 
+  collection_action :render_markdown do
     @text = params["text"]
     render partial: "shared/markdown", locals: { text: @text }
   end
 
-  index do                            
-    column :name                     
-    column :body        
+  index do
+    selectable_column
+    column :name
+    column :body
 
-    default_actions                   
+    default_actions
   end
 
   form do |f|
@@ -22,5 +24,5 @@ ActiveAdmin.register Page do
       f.template.render partial: "shared/markdown_container", locals: {text: f.object.body}
     end
     f.actions
-  end   
+  end
 end

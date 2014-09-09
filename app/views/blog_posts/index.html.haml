@@ -1,33 +1,30 @@
-%div{ class: "row"}
-  %div{ class: "large-12 columns panel"}
+%div.row
+  %div.large-12.columns.panel
     - if @tag
       %h1= "Tagged with #{@tag.name}"
     - else
       %h1 Welcome to the scary place that is my thoughts...
 
-%div{ class: "row" }
-  %div{ class: "large-3 columns panel" }
-    %h5
-      %a{href: "#"} Topics
-    %div{ class: "section-container vertical-nav", data: {data:"section", options: "deep_linking: false; one_up: true"} }
+%div.row
+  %div.large-3.columns.panel
+    %h5= link_to "Topics", "#"
+    %div.section-container.vertical-nav{  data: {data:"section", options: "deep_linking: false; one_up: true"} }
       - @categories.each_with_index do |category, index|
-        %section{ class: "section", role: "expandable" }
-          %h5{class: "title"}
-            %a{href: "#"}= category.name
+        %section.section{ role: "expandable" }
+          %h5.title= link_to category.name, "#"
           %section{ role: "tag-well", style: "display:none", data: { category_number: index + 1 } }
             = render partial: "blog_posts/tag_well", locals: { category: category }
 
-  %div{ class: "large-9 columns"}
-    %div{ class: "row"}
+  %div.large-9.columns
+    %div.row
       - @posts.each do |post|
-        %div{ class: "large-1 columns small-3"}
+        %div.large-1.columns.small-3
           %img{src: "http://placehold.it/80x80&text=[img]"}
-        %div{ class: "large-11 columns"}
+        %div.large-11.columns
           %p
             %strong
               = link_to post.title, blog_post_path(post.id)
           %p= post.summary
-
           %h6= "#{post.comments.count} Comments | #{post.number_of_views} Views"
         %hr
     = paginate @posts

@@ -1,31 +1,29 @@
-%div{ class: "row"}
-  %div{ class: "large-12 columns"}
-    %div{ class: "panel"}
+%div.row
+  %div.large-12.columns
+    %div.panel
       %h1= @post.title
 
-%div{ class: "row"}
-  %div{ class: "large-1 columns small-3"}
-    %img{src: "http://placehold.it/80x80&text=[img]"}
-  %div{ class: "large-11 columns"}
+%div.row
+  %div.large-1.columns.small-3
+    = image_link(@post.photo(:thumb))
+  %div.large-11.columns
     = render partial: "shared/markdown_container", locals: { text: @post.body }
-    %ul{class: "inline-list"}
-      %li
-        %a{href: ""} Comment
-      %li
-        %a{href: ""} Share
+    %ul.inline-list
+      %li= link_to "Comment", "#"
+      %li= link_to "Share", "#"
 
     %h6= "#{@post.comments.count} Comments"
-    %div{ class: "row"}
-      %div{ class: "large-1 columns small-3"}
+    %div.row
+      %div.large-1.columns.small-3
         %img{src: "http://placehold.it/50x50&text=[img]"}
-      %div{ class: "large-11 columns"}
+      %div.large-11.columns
         %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck}duis velit. Aute in reprehenderit
 
     %hr
 
-    %div{ class: "row"}
-      %div{ class: "large-1 columns small-3"}
+    %div.row
+      %div.large-1.columns.small-3
         %img{src: "http://placehold.it/50x50&text=[img]"}
-      %div{ class: "large-11 columns"}
+      %div.large-11.columns
         %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck}duis velit. Aute in reprehenderit
     %hr
