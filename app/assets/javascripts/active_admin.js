@@ -1,2 +1,3 @@
 //= require active_admin/base
-//= require markdown
+//= require admin/markdown
+//= require admin/select_tags

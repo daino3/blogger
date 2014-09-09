@@ -12,7 +12,11 @@ module Taggable
     end
 
     def tag_list
-      tags.map(&:name).join(", ")
+      tags_array.join(", ")
+    end
+
+    def tags_array
+      tags.map(&:name)
     end
 
     def tag_list=(names)

@@ -3,6 +3,16 @@ ActiveAdmin.register BlogPost do
     def scoped_collection
       BlogPost.includes(:tags)
     end
+
+    def create
+      params[:blog_post].delete(:selected_tags)
+      super
+    end
+
+    def update
+      params[:blog_post].delete(:selected_tags)
+      super
+    end
   end
 
   collection_action :render_markdown do
@@ -13,7 +23,9 @@ ActiveAdmin.register BlogPost do
   index do
     column :title
     column :summary
-    column :body
+    column :body do |f|
+      div truncate(f.body, length: 350)
+    end
     column 'Tags' do |post|
       post.tag_list
     end
@@ -38,6 +50,7 @@ ActiveAdmin.register BlogPost do
 
   form do |f|
     f.inputs do
+      f.input "selected_tags", as: :hidden, value: f.object.tags_array
       f.input :blog_category, collection: BlogCategory.all.collect {|x| [x.name, x.id] }
       f.input :tags, as: :check_boxes, multiple: true, collection: Tag.all.collect {|x| [x.name, x.id] }
       f.input :title
