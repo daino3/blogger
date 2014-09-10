@@ -6,7 +6,6 @@ $(document).on("keyup", "[name='blog_post[body]']", ()->
   renderMarkdown(@)
 )
 
-
 renderMarkdown = (ele)->
   $e   = $(ele)
   text = $e.val()
