@@ -1,29 +1,24 @@
-%nav.top-bar
-  %ul.title-area
-    %li.name
-      %h1
-        %a{href: "#"} Dainjar.us
-    // Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
-    %li.toggle-topbar.menu-icon
-      %a{href: "#"}
-        %span Menu
+%div{style: "background-color:black"}
+  %nav.top-bar.row{role: "navigation", data: {data: "topbar"}}
+    %ul.title-area.large-4.columns{style: "padding:0px"}
+      %li.name
+        %h1=link_to "Dainjar.us", root_path, style: "padding:0px"
+      // Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+      %li.toggle-topbar.menu-icon
+        %a{href: "#"}
+          %span Menu
 
-  %section.top-bar-section
-    %ul
-      %li.divider.hide-for-small
-      %li.has-form
-        %form
-          %div.row.collapse
-            %div.small-8.columns
+    %section.top-bar-section.large-4.columns
+      %ul
+        %li.has-form.large-12.columns
+          %form
+            %div.large-10.columns{style: "padding:0px"}
               %input{type: "text"}
-            %div.small-4.columns
+            %div.large-2.columns{style: "padding:0px"}
               %a{href: "#", class: "alert button"} Search
 
-    %ul.right
-      %li.divider
-      %li= link_to "Home", root_path
-      %li.divider
-      %li= link_to "Blog", blog_posts_path
-      %li.divider
-      %li= link_to "Download Resume", "#"
-      %li.divider
+    %section.top-bar-section.large-4.columns{style: "padding:0px"}
+      %ul.right
+        %li= link_to "Blog", blog_posts_path, style: "padding:0px"
+        %li.divider{style: "width:10px"}
+        %li= link_to "Download Resume", "#", style: "padding:0px"
