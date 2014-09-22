@@ -17,7 +17,12 @@ $icon-fonts:
   // Glyphicons and Halflings
   // Ordered A-Z
   down-arrow "\f13a" $icon-awesome,
-  up-arrow "\f139" $icon-awesome
+  up-arrow "\f139" $icon-awesome,
+  twitter "\f081" $icon-awesome,
+  facebook "\f082" $icon-awesome,
+  github "\f092" $icon-awesome,
+  linkedin "\f08C" $icon-awesome,
+  email "\f0E0" $icon-awesome
 ;
 
 @each $icon in $icon-fonts {
@@ -30,9 +35,6 @@ $icon-fonts:
 }
 
 i.icon-font {
-  // install compass
-  // @include inline-block(middle);
-
   color: inherit;
   font-size: inherit;
   font-style: normal;
@@ -49,9 +51,5 @@ i.icon-font {
 
   &.active {
     color: black;
-  }
-
-  &:before {
-    // @include inline-block(-3px);
   }
 }

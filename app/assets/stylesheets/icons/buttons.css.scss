@@ -1,18 +1,23 @@
-@mixin btn-video-player-share($iconColor, $font-size) {
+@mixin btn($iconColor, $font-size) {
   @extend .btn-clean;
   @extend .rounded-corners;
 
+  &:hover {background-color: transparent;}
   display: inline-block;
-
   .icon-font {
     color: $iconColor;
     font-size: $font-size;
   }
 }
 
-.btn-icon {
-  @include btn-video-player-share($brand-primary, 30px);
-}
+.btn-icon {@include btn($brand-primary, 30px);}
+.social-icon {@include btn(black, 40px);}
+.facebook:hover {color: #3B5998;}
+.linkedin:hover {color: #4875B4;}
+.twitter:hover  {color: #33CCFF;}
+.github:hover   {color: #999;}
+.google-plus:hover {color: #C63D2D;}
+
 
 .btn-clean {
   background-color: transparent;
@@ -30,10 +35,4 @@
   width: auto;
 }
 
-* {
-  outline:none;
-}
-
-.rounded-corners {
-  border-radius: 5px;
-}
+.rounded-corners {border-radius: 5px;}
