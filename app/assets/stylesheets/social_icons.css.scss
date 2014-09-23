@@ -1,0 +1,16 @@
+.facebook:hover {color: #3B5998;}
+.linkedin:hover {color: #4875B4;}
+.twitter:hover  {color: #00aced;}
+.github:hover   {color: #BD2C00;}
+.email:hover    {color: white;}
+.google-plus:hover {color: #C63D2D;}
+
+.social-buttons {
+  margin: 15px 0px 15px 0px;
+  color: black;
+  font-size: 18px;
+  ul {
+    margin-top: 10px;
+    li { margin-left: 15px;}
+  }
+}

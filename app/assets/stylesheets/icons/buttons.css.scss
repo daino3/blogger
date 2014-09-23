@@ -11,12 +11,7 @@
 }
 
 .btn-icon {@include btn($brand-primary, 30px);}
-.social-icon {@include btn(black, 40px);}
-.facebook:hover {color: #3B5998;}
-.linkedin:hover {color: #4875B4;}
-.twitter:hover  {color: #33CCFF;}
-.github:hover   {color: #999;}
-.google-plus:hover {color: #C63D2D;}
+.social-icon {@include btn(black, 50px);}
 
 
 .btn-clean {

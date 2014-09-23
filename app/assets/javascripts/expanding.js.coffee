@@ -17,6 +17,10 @@ $ ->
   $("[role='show-more']").on("click", ->
     # this evidently has a TON of knowledge about the DOM; can probably do this better
     $contentWindow =  $(this).parent().prev().find("[role='expandable-content']")
+
+    if !$contentWindow.length
+      $contentWindow =  $(this).parent().parent().prev().find("[role='expandable-content']")
+
     switch $contentWindow.attr("data-expanded")
       when "false" then ContentWindowSetter.expand($contentWindow, $(this))
       when "true"  then ContentWindowSetter.contract($contentWindow, $(this))

@@ -1,6 +1,6 @@
 %div{style: "background-color:black"}
   %nav.top-bar.row{role: "navigation", data: {data: "topbar"}}
-    %ul.title-area.large-4.columns{style: "padding:0px"}
+    %ul.title-area.large-3.columns{style: "padding:0px"}
       %li.name
         %h1=link_to "Dainjar.us", root_path, style: "padding:0px"
       // Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
@@ -8,17 +8,13 @@
         %a{href: "#"}
           %span Menu
 
-    %section.top-bar-section.large-4.columns
-      %ul
-        %li.has-form.large-12.columns
-          %form
-            %div.large-10.columns{style: "padding:0px"}
-              %input{type: "text"}
-            %div.large-2.columns{style: "padding:0px"}
-              %a{href: "#", class: "alert button"} Search
+    %section.top-bar-section.large-6.columns
+      = render partial: "shared/search_form"
 
-    %section.top-bar-section.large-4.columns{style: "padding:0px"}
+    %section.top-bar-section.large-3.columns{style: "padding:0px"}
       %ul.right
         %li= link_to "Blog", blog_posts_path, style: "padding:0px"
         %li.divider{style: "width:10px"}
-        %li= link_to "Download Resume", "#", style: "padding:0px"
+        %li= link_to "Code Samples", "#", style: "padding:0px"
+        %li.divider{style: "width:10px"}
+        %li= link_to "Download Resume", "https://www.dropbox.com/s/b1bascd9xuhpdw3/Dain%20Hall%20Resume_2013.11.pdf", style: "padding:0px"

@@ -1,9 +1,9 @@
 %div.row
-  %div.large-12.columns.panel
+  %div.large-12.columns.panel.blog-banner.hide-for-small
     - if @tag
-      %h1= "Tagged with #{@tag.name}"
+      = "Tagged with #{@tag.name}"
     - else
-      %h1 Welcome to the scary place that is my thoughts...
+      Welcome to the scary place that is my thoughts...
 
 %div.row
   %div.large-3.columns.panel
