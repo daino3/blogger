@@ -8,9 +8,14 @@
     = image_link(@post.photo(:thumb))
   %div.large-11.columns
     = render partial: "shared/markdown_container", locals: { text: @post.body }
-    %ul.inline-list
-      %li= link_to "Comment", "#"
-      %li= link_to "Share", "#"
+
+    %div.comment-container
+      %ul.inline-list
+        %li= link_to "Comment", "#", role: "comment"
+        %li= link_to "Share", "#"
+
+      %div.comment-form{style: "display:none", role: "comment-container"}
+        = render partial: "comments/new", locals: { comment: Comment.new , blog_post: @post }
 
     %h6= "#{@post.comments.count} Comments"
     %div.row

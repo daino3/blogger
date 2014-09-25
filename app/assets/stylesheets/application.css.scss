@@ -10,16 +10,18 @@
 // foundation
 @import "foundation_and_overrides";
 
-// stylsheets
+// layout
 @import "footer";
 @import "layout";
+
+// stylsheets
 @import "resume";
 @import "home";
 @import "tag_cloud";
 @import "custom_page_break";
-
-// code
+@import "comments";
 @import "pygments";
 @import "social_icons";
 @import "blog_posts";
+
 @import "media/custom_resizing_behavior";
