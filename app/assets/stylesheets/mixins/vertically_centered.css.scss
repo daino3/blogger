@@ -1,3 +1,17 @@
 @mixin vertically-centered($container-height: 0) {
   line-height: $container-height;
 }
+
+@mixin bottom-centered() {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin top-centered() {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}

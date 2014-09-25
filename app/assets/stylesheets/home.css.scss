@@ -15,19 +15,43 @@ $header-height: 100px;
     font-family: "Papyrus";
     font-style: italic;
     position: absolute;
-    bottom: 50;
+    top: 150;
     left: 0;
     width: 100%;
   }
   .home-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    @include top-centered;
     height: $header-height;
     .nav-section {top: 20px;}
     .site-title { top: 5px;}
     .home-header-title {margin: 0px;}
   }
+  .nav-section-small {
+    position:absolute;
+    left:0;
+    right:0;
+    bottom: 5;
+    text-align: center;
+    ul.inline-list {
+      display: inline-block;
+      margin: 0;
+      li {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        min-width: 110px;
+        margin-left: 5px;
+        &:hover {
+          background-color: white;
+          opacity: 0.6;
+          a {color: black;}
+        }
+      }
+    }
+  }
   a {color: white;}
+}
+
+.home-body {
+  margin-top: $default-margins;
 }

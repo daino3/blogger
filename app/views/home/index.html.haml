@@ -9,7 +9,8 @@
         = image_tag("bio.jpg", class: 'section-image')
       %div.large-10.columns.resume-content{ role: "expandable-content" }
         = render partial: "shared/markdown", locals: { text: @bio.body }
-    = render partial: "shared/custom_page_break"
+    %div.hide-for-small
+      = render partial: "shared/custom_page_break"
 
     %div.row.hide-for-small
       %div.large-2.columns.text-center
@@ -38,7 +39,7 @@
     %div.hide-for-small
       = render partial: "shared/custom_page_break"
 
-  %div.large-6.small-12.columns
+  %div.large-6.small-12.columns.blog-panel
     %h4 Blog
     %hr
     %div.panel

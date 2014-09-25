@@ -1,4 +1,6 @@
 # TODO: rewrite to toggle class of truncated vs. expanded
+window.onresize = ()->
+  ContentWindowSetter.setHeightDataAttributes
 $ ->
   # on page load, set data attributes of min / max height to access on click events
   ContentWindowSetter.setHeightDataAttributes()
