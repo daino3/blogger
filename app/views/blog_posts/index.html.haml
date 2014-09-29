@@ -18,8 +18,8 @@
   %div.large-9.columns
     %div.row
       - @posts.each do |post|
-        %div.large-1.columns.small-3
-          %img{src: "http://placehold.it/80x80&text=[img]"}
+        %div.large-1.columns.small-3.hide-for-small
+          = image_link(post.photo(:thumb))
         %div.large-11.columns
           %p
             %strong

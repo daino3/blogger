@@ -6,5 +6,4 @@ $ ->
 @ScreenUtility =
 
   detectWindowSize: ()->
-    width = window.width()
-    console.log(width)
+    width = $(window).width()

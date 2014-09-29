@@ -4,3 +4,14 @@ $baseFontFamily: Helvetica, Arial, sans-serif;
 
 $default-padding: 15px;
 $default-margins: 15px;
+
+$small-padding: 5px;
+$small-margins: 5px;
+
+// flash messages
+$success: #76be8e;
+$success-border: darken($success, 20%);
+$warning: #fff086;
+$warning-border: darken($warning, 20%);
+$failure: #ff8183;
+$failure-border: darken($failure, 20%);

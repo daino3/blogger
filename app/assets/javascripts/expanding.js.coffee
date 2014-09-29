@@ -1,4 +1,5 @@
 # TODO: rewrite to toggle class of truncated vs. expanded
+# TODO: figure out resizing javascript
 window.onresize = ()->
   ContentWindowSetter.setHeightDataAttributes
 $ ->

@@ -1,14 +1,15 @@
 class CommentsController < ApplicationController
 
   def create
+    @post = BlogPost.find(params[:blog_post_id])
     comment = Comment.new(comment_params)
-    saved = comment.save
-    if saved
+    binding.pry
+    if comment.save
       flash[:success] = "Thanks for commenting"
     else
-      flash[:failure] = "Something went wrong, Soowwwy"
+      flash[:failure] = comment.errors.messages
     end
-    render nothing: true
+    render :template => "blog_posts/show"
   end
 
   def edit

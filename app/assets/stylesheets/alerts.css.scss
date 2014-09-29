@@ -1,0 +1,6 @@
+.success-box { @include alert-box($success, $success-border, white); }
+.warning-box { @include alert-box($warning, $warning-border, black); }
+.failure-box {
+  @include alert-box($failure, $failure-border, white);
+  & ul {margin: 0px;}
+}

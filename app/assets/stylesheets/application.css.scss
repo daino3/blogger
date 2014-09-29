@@ -1,7 +1,7 @@
 
 // mixins and variables
-@import "mixins/vertically_centered";
 @import "variables/global";
+@import "mixins/mixins";
 @import "utilities/global";
 // font icons
 @import "icons/icons";
@@ -23,5 +23,6 @@
 @import "pygments";
 @import "social_icons";
 @import "blog_posts";
+@import "alerts";
 
 @import "media/custom_resizing_behavior";

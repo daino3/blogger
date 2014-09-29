@@ -1,5 +1,8 @@
 = simple_form_for [blog_post, comment] do |f|
-  = f.input :author, placeholder: 'user@domain.com'
-  = f.input :email, placeholder: 'user@domain.com'
-  = f.input :body, inline_label: 'Yes, remember me'
-  = f.button :submit
+  = f.input :author, placeholder: 'author name', label: false
+  %div.author-message{style: "display:none;"}
+  = f.input :email, placeholder: 'user@domain.com', label: false
+  %div.email-message{style: "display:none;"}
+  = f.input :body, placeholder: 'Comment', label: false
+  %div.body-message{style: "display:none;"}
+  = f.button :submit, role: "submit-comment"

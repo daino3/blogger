@@ -15,3 +15,14 @@
   right: 0;
   top: 0;
 }
+
+@mixin alert-box($bg-color, $border-color, $font-color) {
+  background-color: $bg-color;
+  border: 2px solid $border-color;
+  border-radius: 3px;
+  font-size: 16px;
+  color: $font-color;
+  padding: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

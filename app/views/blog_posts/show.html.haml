@@ -1,3 +1,17 @@
+- binding.pry
+- if flash[:success]
+  %div.row.large-12.columns.success-box
+    = flash[:success]
+- elsif flash[:warning]
+  %div.row.large-12.columns.warning-box
+    = flash[:warning]
+- elsif flash[:failure]
+  %div.row.large-12.columns.failure-box
+    %ul
+      Some errors made the comment not save:
+      - flash[:failure].each do |attribute, message|
+        %li= "#{attribute} #{message}"
+
 %div.row
   %div.large-12.columns
     %div.panel
