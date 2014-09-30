@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
     @post = BlogPost.find(params[:blog_post_id])
     comment = Comment.new(comment_params)
-    binding.pry
+
     if comment.save
       flash[:success] = "Thanks for commenting"
     else

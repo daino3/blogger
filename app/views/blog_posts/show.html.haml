@@ -1,16 +1,5 @@
-- binding.pry
-- if flash[:success]
-  %div.row.large-12.columns.success-box
-    = flash[:success]
-- elsif flash[:warning]
-  %div.row.large-12.columns.warning-box
-    = flash[:warning]
-- elsif flash[:failure]
-  %div.row.large-12.columns.failure-box
-    %ul
-      Some errors made the comment not save:
-      - flash[:failure].each do |attribute, message|
-        %li= "#{attribute} #{message}"
+%div.row{role: "alerts-container"}
+  = render partial: 'shared/flash_alerts'
 
 %div.row
   %div.large-12.columns
@@ -23,26 +12,22 @@
   %div.large-11.columns
     = render partial: "shared/markdown_container", locals: { text: @post.body }
 
+    %hr
+
     %div.comment-container
       %ul.inline-list
         %li= link_to "Comment", "#", role: "comment"
-        %li= link_to "Share", "#"
 
       %div.comment-form{style: "display:none", role: "comment-container"}
         = render partial: "comments/new", locals: { comment: Comment.new , blog_post: @post }
 
     %h6= "#{@post.comments.count} Comments"
-    %div.row
-      %div.large-1.columns.small-3
-        %img{src: "http://placehold.it/50x50&text=[img]"}
-      %div.large-11.columns
-        %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck}duis velit. Aute in reprehenderit
-
     %hr
-
-    %div.row
-      %div.large-1.columns.small-3
-        %img{src: "http://placehold.it/50x50&text=[img]"}
-      %div.large-11.columns
-        %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck}duis velit. Aute in reprehenderit
-    %hr
+    - @post.comments.each do |comment|
+      %div.row.posted-comment
+        %div.large-3.columns.small-3
+          %p= "Author: #{comment.author || 'anonymous'}"
+          %p= "Posted At: #{comment.created_at.strftime('%m/%d/%y')}"
+        %div.large-9.columns
+          %p= comment.body
+      %hr

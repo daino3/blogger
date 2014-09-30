@@ -2,6 +2,10 @@ $brand-primary: #2ba6cb;
 $brand-white: #000000;
 $baseFontFamily: Helvetica, Arial, sans-serif;
 
+$light-gray: #e3e3e3;
+$medium-gray: #a3a3a3;
+$dark-gray: darken($medium-gray, 20%);
+
 $default-padding: 15px;
 $default-margins: 15px;
 
