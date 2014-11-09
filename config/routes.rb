@@ -9,6 +9,15 @@ Blogger::Application.routes.draw do
     resource :comments
   end
 
+  resources :emails, only: [:new] do
+    member do
+      post :send
+    end
+  end
+
+  # get 'emails/new' => 'emails#new', as: 'new_email'
+  # post 'emails/send' => 'emails#send', as: 'send_email'
+
   post 'search' => 'search#find', as: 'search'
   get 'search_tags/:id' => 'tags#show', as: 'tags'
 

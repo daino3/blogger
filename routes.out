@@ -71,5 +71,7 @@ batch_action_admin_blog_categories POST       /admin/blog_categories/batch_actio
                          blog_post GET        /blog_posts/:id(.:format)                         blog_posts#show
                                    PUT        /blog_posts/:id(.:format)                         blog_posts#update
                                    DELETE     /blog_posts/:id(.:format)                         blog_posts#destroy
+                         new_email GET        /emails/new(.:format)                             emails#new
+                        send_email POST       /emails/send(.:format)                            emails#send
                             search POST       /search(.:format)                                 search#find
                               tags GET        /search_tags/:id(.:format)                        tags#show

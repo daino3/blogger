@@ -7,7 +7,7 @@ class SearchController < ApplicationController
     posts = BlogPost.search(text) | tag_results.map(&:blog_posts).flatten
 
     @posts = Kaminari.paginate_array(posts).page(params[:page]).per(5)
-    render "blog_posts/index"
+    redirect_to "blog_posts/index"
   end
 
 end
