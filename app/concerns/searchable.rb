@@ -9,7 +9,7 @@ module Searchable
     document_type self.table_name
 
     def self.search(query, options = {})
-      __elasticsearch__.search(query, options)
+      __elasticsearch__.search(query, options).records.to_a
     end
 
     def index_document(options={})
