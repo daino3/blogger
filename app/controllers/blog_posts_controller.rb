@@ -9,6 +9,7 @@ class BlogPostsController < ApplicationController
 
   def show
     @post = BlogPost.includes(:comments).find(params[:id])
+    @comments = Kaminari.paginate_array(@post.comments).page(params[:page]).per(5)
   end
 
 end

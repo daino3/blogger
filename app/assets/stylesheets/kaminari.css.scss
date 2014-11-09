@@ -1,0 +1,21 @@
+.pagination {
+  background-color: #C0C0C0;
+  display: inline-block;
+  padding: 10px;
+  height: auto;
+  margin-bottom: 10px;
+  border: 1px solid gray;
+  .page {
+    &:before {content: "|";}
+  }
+  .next {
+    &:before {content: "|";}
+  }
+  .current {
+    font-weight: bold;
+  }
+  & a {
+    text-decoration: none;
+    color: black;
+  }
+}

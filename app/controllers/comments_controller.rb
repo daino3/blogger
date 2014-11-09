@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     else
       flash[:failure] = comment.errors.messages
     end
-    render :template => "blog_posts/show"
+    redirect_to blog_post_path(@post)
   end
 
   def edit

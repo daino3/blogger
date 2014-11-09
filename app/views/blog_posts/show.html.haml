@@ -23,7 +23,7 @@
 
     %h6= "#{@post.comments.count} Comments"
     %hr
-    - @post.comments.each do |comment|
+    - @comments.each do |comment|
       %div.row.posted-comment
         %div.large-3.columns.small-3
           %p= "Author: #{comment.author || 'anonymous'}"
@@ -31,3 +31,4 @@
         %div.large-9.columns
           %p= comment.body
       %hr
+    = paginate @comments

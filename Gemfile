@@ -26,7 +26,6 @@ group :development, :test do
   gem "pry"
   gem 'railroady' # schema visualizer
   gem 'rspec-rails'
-  gem 'zeus-parallel_tests'
 end
 
 gem 'spring', group: :development
