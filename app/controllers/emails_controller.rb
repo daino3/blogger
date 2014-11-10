@@ -1,23 +1,21 @@
 class EmailsController < ApplicationController
 
-
   def new
-    binding.pry
-    # if request.xhr?
-    #   @email = Email.new
-    #   render 'emails/new'
-    # else
-    #   flash[:warning] = "Please don't try and mess with me"
-    #   redirect_to home_path
-    # end
+    @email = Email.new
+    render layout: false
   end
 
-  def show
-    binding.pry
-  end
-
-  def send
-    binding.pry
+  def send_email
+    BlogMailer
+    email_account = ActionMailer::Base.smtp_settings[:]
+    email = Email.new(params[:email].merge(to: email_account))
+    if email.save!
+      BlogMailer.format_and_send(email)
+      flash[:success] = "Thanks for your interest, maybe I'll get back to you"
+    else
+      flash[:failure] = "Something was up with you email, can you retry?"
+    end
+    render nothing: true
   end
 
 end

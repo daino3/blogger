@@ -38,7 +38,7 @@ $header-height: 100px;
       li {
         border: 2px solid white;
         padding: 5px;
-        border-radius: 10px;
+        border-radius: $default-padding;
         min-width: 110px;
         margin-left: 5px;
         &:hover {

@@ -1,5 +1,11 @@
 .email-container {
+  .close { margin-bottom: 10px;}
+  padding: $default-padding;
   background-color: black;
-  width: 400px;
-  height: 600px;
+  width: 500px;
+  height: auto;
+  color: white;
+  label {color: white;}
+  textarea { height: auto;}
+  form { margin-bottom: 0; }
 }

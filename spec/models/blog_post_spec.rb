@@ -10,7 +10,7 @@ describe BlogPost do
       sorted.all? { |boolean| boolean == true }
     end
 
-    it "returns the most recent blog posts sorted by date", :focus do
+    it "returns the most recent blog posts sorted by date" do
       posts = FactoryGirl.create_list(:blog_post, 3)
 
       posts.each_with_index do |post, index|
