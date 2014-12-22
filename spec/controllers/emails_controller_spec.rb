@@ -13,6 +13,8 @@ RSpec.describe EmailsController, :type => :controller do
   describe 'GET send_email', :focus do
     it 'creates an email, sends it, and renders a success message' do
 
+
+
       expect(assigns[:email]).to be_an(Email)
       expect(response).to render_template('emails/new')
     end

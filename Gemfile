@@ -45,6 +45,8 @@ gem 'rack-mini-profiler'
 gem 'redcarpet'
 gem 'rmagick', '2.13.2'
 gem 'simple_form'
+gem 'unicorn'
+gem 'capistrano'
 
 
 # To use ActiveModel has_secure_password
