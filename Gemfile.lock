@@ -209,7 +209,7 @@ GEM
     redcarpet (3.2.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rmagick (2.13.2)
+    rmagick (2.13.4)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -291,7 +291,7 @@ DEPENDENCIES
   railroady
   rails (= 3.2.19)
   redcarpet
-  rmagick (= 2.13.2)
+  rmagick
   rspec-rails
   sass-rails (~> 3.2.3)
   simple_form
