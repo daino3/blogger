@@ -1,5 +1,5 @@
 require "bundler/capistrano"
-
+#bundle exec cap deploy:cold -d
 server "96.126.116.139", :web, :app, :db, primary: true
 
 set :application, "blogger"

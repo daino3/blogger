@@ -1,4 +1,10 @@
-path = Rails.root.join('config', 'smtp_settings.yml')
+path = ''
+
+if Rails.env.production?
+  path = Rails.root.join('../../', 'smtp_settings.yml')
+else
+  path = Rails.root.join('config', 'smtp_settings.yml')
+end
 file = YAML.load(File.read(path))
 
 file.each do |key, value|
