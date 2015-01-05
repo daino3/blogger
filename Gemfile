@@ -21,6 +21,7 @@ end
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'factory_girl_rails'
   gem "faker"
   gem 'letter_opener'
   gem "pry"
@@ -32,10 +33,10 @@ gem 'spring', group: :development
 gem "spring-commands-rspec", group: :development
 
 gem 'activeadmin'
+gem 'capistrano'
 gem 'elasticsearch-extensions'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem 'factory_girl_rails'
 gem 'jquery-rails'
 gem 'kaminari'
 gem "paperclip"
@@ -46,8 +47,6 @@ gem 'redcarpet'
 gem 'rmagick'
 gem 'simple_form'
 gem 'unicorn'
-gem 'capistrano'
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
