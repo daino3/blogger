@@ -57,5 +57,10 @@ namespace :deploy do
       exit
     end
   end
+
+  desc "remove precompiled assets from local public folder"
+  task :remove_local_assets do
+    run "rm -rf public/assets/*"
+  end
   before "deploy", "deploy:check_revision"
 end
