@@ -1,8 +1,7 @@
-path =  if File.exists?(Rails.root.join('../', 'smtp_settings.yml')) # production
-          Rails.root.join('../', 'smtp_settings.yml')
-        else
-          Rails.root.join('config', 'smtp_settings.yml')
-        end
+production_smtp_path = Rails.root.join('../../', 'smtp_settings.yml')
+local_smtp_path      = Rails.root.join('config', 'smtp_settings.yml')
+
+path = File.exists?(production_smtp_path) ? production_smtp_path : local_smtp_path
 
 file = YAML.load(File.read(path))
 
