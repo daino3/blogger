@@ -1,10 +1,13 @@
 path = ''
 
-path =  if Rails.env.production?
-          Rails.root.join('../', 'smtp_settings.yml')
-        else
-          Rails.root.join('config', 'smtp_settings.yml')
-        end
+path = Rails.root.join('config', 'smtp_settings.yml')
+
+# if not precompiling assets, uncomment
+# path =  if Rails.env.production?
+#           Rails.root.join('../', 'smtp_settings.yml')
+#         else
+#           Rails.root.join('config', 'smtp_settings.yml')
+#         end
 
 file = YAML.load(File.read(path))
 
