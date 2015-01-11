@@ -34,6 +34,7 @@ gem "spring-commands-rspec", group: :development
 
 gem 'activeadmin'
 gem 'capistrano'
+gem "capistrano-db-tasks", require: false
 gem 'elasticsearch-extensions'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'

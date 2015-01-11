@@ -1,6 +1,24 @@
 require "bundler/capistrano"
+require 'capistrano-db-tasks'
+
 #bundle exec cap deploy:cold -d
+
 server "96.126.116.139", :web, :app, :db, primary: true
+
+## DB Tasks #####################
+# if you haven't already specified
+set :rails_env, "production"
+
+# if you want to remove the local dump file after loading
+set :db_local_clean, true
+
+# if you want to remove the dump file from the server after downloading
+set :db_remote_clean, true
+
+# if you want to work on a specific local environment (default = ENV['RAILS_ENV'] || 'development')
+set :locals_rails_env, "production"
+
+## End DB Tasks #################
 
 set :application, "blogger"
 set :user, "deployer"
