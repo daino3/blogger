@@ -1,6 +1,6 @@
 %div.header-container.text-center
   = image_tag(@image.get_url, class: "background-image")
-  %h3.background-image-text
+  %h3.background-image-text{style: "text-shadow: 2px 2px 2px black;"}
     "A mind that is stretched by new experiences can never return to its original dimensions"
   %div.row.home-header
     %div.large-3.columns.nav-section.site-title
@@ -18,5 +18,4 @@
   %div.large-4.columns.nav-section-small.show-for-small
     %ul.inline-list
       %li= link_to "Blog", blog_posts_path
-      %li= link_to "Code Samples", "#"
       %li= link_to "Resume", "https://www.dropbox.com/s/b1bascd9xuhpdw3/Dain%20Hall%20Resume_2013.11.pdf"

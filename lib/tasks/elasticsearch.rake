@@ -1,8 +1,8 @@
 require 'elasticsearch_indexer'
 
 # check mapping after import:
-# Tt::Episode.mappings.to_hash
-# Basic search Tt::Episode.search("*")
+# BlogPost.mappings.to_hash
+# Basic search BlogPost.search("*")
 # Visit to query: http://localhost:9200/_plugin/marvel
 
 namespace :elasticsearch do
