@@ -1,7 +1,7 @@
 %div.large-12.columns.large-centered
   %div{ class: "row collapse postfix-round" }
     = simple_form_for :search, url: search_path do |f|
-      %div{ class: "small-9 columns" }
+      %div{ class: "small-10 columns", style: 'padding-right:0;' }
         = f.input :text, label: false, input_html: { placeholder: 'Search Here' }
-      %div{ class: "small-3 columns" }
+      %div{ class: "small-2 columns",  style: 'padding-left:0;' }
         = f.button :submit, "Go", class: "button postfix"

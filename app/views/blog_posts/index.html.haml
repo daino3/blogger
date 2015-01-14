@@ -1,4 +1,4 @@
-%div.row
+%div.row{style: 'min-height:65%;'}
   %div.large-12.columns.panel.blog-banner.hide-for-small
     - if @tag
       = "Tagged with #{@tag.name}"
@@ -7,12 +7,12 @@
 
 %div.row
   %div.large-3.columns.panel
-    %h5= link_to "Topics", "#"
-    %div.section-container.vertical-nav{  data: {data:"section", options: "deep_linking: false; one_up: true"} }
+    %h5{style: 'color:black'}= link_to "Topics", "#"
+    %div.tagging-container
       - @categories.each_with_index do |category, index|
-        %section.section{ role: "expandable" }
-          %h5.title= link_to category.name, "#"
-          %section{ role: "tag-well", style: "display:none", data: { category_number: index + 1 } }
+        %section.tag-category{ role: "expandable" }
+          %h5.title= link_to "#{category.name} (#{category.tags.count})", "#"
+          %div{ role: "tag-well", style: "display:none", data: { category_number: index + 1 } }
             = render partial: "blog_posts/tag_well", locals: { category: category }
 
   %div.large-9.columns

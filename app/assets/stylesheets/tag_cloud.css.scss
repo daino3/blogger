@@ -1,11 +1,22 @@
-.tag {
-  display: inline-block;
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid gray;
-  background-color: #E6E6FA;
-  &:hover  { cursor: pointer; }
-  &.small  { font-size: 0.8em; }
-  &.medium { font-size: 1.2em; }
-  &.large  { font-size: 1.5em; }
+.tagging-container{
+  .tag-category {
+    padding: 5px;
+    background-color: #E6E6FA;
+    margin-top: 5px;
+    border: 1px solid #D3D3D3;
+    &:hover  { cursor: pointer; }
+    .tag {
+      background-color: #B0C4DE;
+      border-radius: 2px;
+      border: 1px solid gray;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      margin: 5px;
+      padding: 5px;
+      &.small  { font-size: 0.8em; }
+      &.medium { font-size: 1.2em; }
+      &.large  { font-size: 1.5em; }
+    }
+  }
 }

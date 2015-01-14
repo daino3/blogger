@@ -1,5 +1,4 @@
 %div.tag-cloud
-  Tags
   - tag_cloud category.tags, %w(small medium large) do |tag, css_class|
     %div.tag
       = link_to tag.name, tags_path(tag.id), class: css_class
