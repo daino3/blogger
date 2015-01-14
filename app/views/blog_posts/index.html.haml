@@ -1,11 +1,11 @@
-%div.row{style: 'min-height:65%;'}
+%div.row
   %div.large-12.columns.panel.blog-banner.hide-for-small
     - if @tag
       = "Tagged with #{@tag.name}"
     - else
       Welcome to the scary place that is my thoughts...
 
-%div.row
+%div.row{style: 'min-height:65%;'}
   %div.large-3.columns.panel
     %h5{style: 'color:black'}= link_to "Topics", "#"
     %div.tagging-container
