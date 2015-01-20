@@ -1,9 +1,11 @@
 # TODO: rewrite to toggle class of truncated vs. expanded
 # TODO: figure out resizing javascript
+# TODO: Consolidate logic
 UIConstants = {
   tagWell: "[role='tag-well']"
   expandingContent: "[role='expandable-content']"
   showMore: "[role='show-more']"
+  expandable: "[role='expandable']"
 }
 
 window.onresize = ()->
@@ -13,18 +15,23 @@ $ ->
   # on page load, set data attributes of min / max height to access on click events
   ContentWindowSetter.setHeightDataAttributes()
 
-  $(UIConstants.showMore).on("click", ->
-    # this evidently has a TON of knowledge about the DOM; can probably do this better
-    $contentWindow = $(@).parent().prev().find(UIConstants.expandingContent)
+  $(UIConstants.showMore).on "click", ->
+    $ele = $(@)
+    $content = $("[data-#{$ele.data('section')}]")
 
-    if !$contentWindow.length
-      $contentWindow = $(@).parent().parent().prev().find(UIConstants.expandingContent)
-
-    switch $contentWindow.data("expanded")
-      when "false" then ContentWindowSetter.expand($contentWindow, $(@))
-      when "true"  then ContentWindowSetter.contract($contentWindow, $(@))
+    switch $content.data("expanded")
+      when false then ContentWindowSetter.expand($content, $ele)
+      when true  then ContentWindowSetter.contract($content, $ele)
       else null
-    )
+
+  $(UIConstants.expandable).on "click", ->
+    $selectedCategory       = $(@).find(UIConstants.tagWell)
+    selectedCategoryNumber  = $selectedCategory.data("category-number")
+    $.each $(UIConstants.tagWell), (index, value)->
+      currentCategoryNumber = $(value).data("category-number")
+      if $(value).is(':visible') && (currentCategoryNumber != selectedCategoryNumber)
+        $(value).slideToggle("fast")
+    $selectedCategory.slideToggle("fast")
 
 @ContentWindowSetter =
   setHeightDataAttributes: () ->

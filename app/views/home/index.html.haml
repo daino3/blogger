@@ -7,37 +7,37 @@
     %div.row
       %div.large-2.columns.hide-for-small
         = image_tag("bio.jpg", class: 'section-image')
-      %div.large-10.columns.resume-content{ role: "expandable-content" }
+      %div.large-10.columns.resume-content{ role: "expandable-content", data: {bio: true} }
         = render partial: "shared/markdown", locals: { text: @bio.body }
     %div.hide-for-small
-      = render partial: "shared/custom_page_break"
+      = render partial: "shared/custom_page_break", locals: {selector: 'bio'}
 
     %div.row.hide-for-small
       %div.large-2.columns.text-center
         = image_tag("resume.jpg", class: 'section-image')
         %h6 Work
-      %div.large-10.columns.resume-content{ role: "expandable-content" }
+      %div.large-10.columns.resume-content{ role: "expandable-content", data: {resume: true} }
         = render partial: "shared/markdown", locals: { text: @work.body }
     %div.hide-for-small
-      = render partial: "shared/custom_page_break"
+      = render partial: "shared/custom_page_break", locals: {selector: 'resume'}
 
     %div.row.hide-for-small
       %div.large-2.columns.text-center
         = image_tag("education.jpg", class: 'section-image')
         %h6 Education
-      %div.large-10.columns.resume-content{ role: "expandable-content" }
+      %div.large-10.columns.resume-content{ role: "expandable-content", data: {education: true} }
         = render partial: "shared/markdown", locals: { text: @edu.body }
     %div.hide-for-small
-      = render partial: "shared/custom_page_break"
+      = render partial: "shared/custom_page_break", locals: {selector: 'education'}
 
     %div.row.hide-for-small
       %div.large-2.columns.text-center
         = image_tag("projects.jpg", class: 'section-image')
         %h6 Projects
-      %div.large-10.columns.resume-content{ role: "expandable-content" }
+      %div.large-10.columns.resume-content{ role: "expandable-content", data: {projects: true} }
         = render partial: "shared/markdown", locals: { text: @projects.body }
     %div.hide-for-small
-      = render partial: "shared/custom_page_break"
+      = render partial: "shared/custom_page_break", locals: {selector: 'projects'}
 
   %div.large-6.small-12.columns.blog-panel
     %h4 Blog
