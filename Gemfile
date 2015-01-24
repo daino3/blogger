@@ -25,6 +25,7 @@ group :development, :test do
   gem "faker"
   gem 'letter_opener'
   gem "pry"
+  gem 'rack-mini-profiler'
   gem 'railroady' # schema visualizer
   gem 'rspec-rails'
 end
@@ -38,6 +39,7 @@ gem "capistrano-db-tasks", require: false
 gem 'elasticsearch-extensions'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'friendly_id'
 gem 'jquery-rails'
 gem 'kaminari'
 gem "paperclip"

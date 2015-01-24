@@ -43,11 +43,12 @@
     %h4 Blog
     %hr
     %div.panel
-      %h5= link_to @featured_post.title, blog_post_path(@featured_post.id)
+      %h5= link_to @featured_post.title, blog_post_path(@featured_post)
       %h6.subheader= @featured_post.summary
-      %h6= link_to "Read More »", blog_post_path(@featured_post.id)
-    - @other_posts.each do |post|
-      %div.panel.hide-for-small
-        %h5= link_to "#{post.title} »", blog_post_path(post.id)
+      %h6= link_to "Read More »", blog_post_path(@featured_post)
+    - if @other_posts.present?
+      - @other_posts.each do |post|
+        %div.panel.hide-for-small
+          %h5= link_to "#{post.title} »", blog_post_path(post)
 
     =link_to "Go To Blog »", blog_posts_path, class: "right"

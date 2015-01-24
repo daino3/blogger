@@ -2,8 +2,8 @@
 class BlogPostsController < ApplicationController
 
   def index
-    @categories = BlogCategory.all
-    posts = BlogPost.includes(:comments).all
+    @categories = BlogCategory.scoped.includes(:tags)
+    posts = BlogPost.published.includes(:comments)
     @posts = Kaminari.paginate_array(posts).page(params[:page]).per(5)
   end
 

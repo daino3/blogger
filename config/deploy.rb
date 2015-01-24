@@ -7,6 +7,7 @@ server "96.126.116.139", :web, :app, :db, primary: true
 
 ## DB Tasks #####################
 ## b cap db:remote:sync || db:push
+## b cap db:local:sync || db:pull
 # if you haven't already specified
 set :rails_env, "production"
 

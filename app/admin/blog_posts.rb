@@ -59,7 +59,7 @@ ActiveAdmin.register BlogPost do
       f.input :title
       f.input :summary, input_html: { rows: 2, cols: 1 }
       f.input :body, input_html: { data: {url: render_markdown_admin_blog_posts_path(f.object.id)} }
-      f.input :published_at, as: :datepicker
+      f.input :published
       f.input :photo, :as => :file
     end
     f.inputs "Post Format" do

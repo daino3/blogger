@@ -10,12 +10,12 @@ class HomeController < ApplicationController
     # implement this
     # @content_areas = [bio, edu, work, projects, skills]
 
-    posts = BlogPost.recent(6.months.ago).limit(5)
+    posts = BlogPost.recent(6.months.ago).published.limit(5)
 
     @image = Photo.find_by_title("skyline")
 
     @featured_post = posts.shift
-    @other_posts = posts
+    @other_posts = posts unless posts.empty?
   end
 
   private
