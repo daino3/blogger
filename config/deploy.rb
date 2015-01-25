@@ -83,5 +83,7 @@ namespace :deploy do
     puts "Cleaning up locally compiled assets"
     run "bundle exec rake assets:clean"
   end
+  after "deploy:symlink_config", "deploy:remove_local_assets"
+
   before "deploy", "deploy:check_revision"
 end
