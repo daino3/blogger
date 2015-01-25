@@ -45,7 +45,6 @@ gem 'kaminari'
 gem "paperclip"
 gem 'pg'
 gem 'pygments.rb'
-gem 'rack-mini-profiler'
 gem 'redcarpet'
 gem 'rmagick'
 gem 'simple_form'

@@ -80,7 +80,8 @@ namespace :deploy do
 
   desc "remove precompiled assets from local public folder"
   task :remove_local_assets do
-    run "rm -rf public/assets/*"
+    puts "Cleaning up locally compiled assets"
+    run "bundle exec rake assets:clean"
   end
   before "deploy", "deploy:check_revision"
 end
