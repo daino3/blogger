@@ -39,7 +39,7 @@ gem "capistrano-db-tasks", require: false
 gem 'elasticsearch-extensions'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem 'friendly_id'
+gem "friendly_id"
 gem 'jquery-rails'
 gem 'kaminari'
 gem "paperclip"

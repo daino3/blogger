@@ -7,13 +7,5 @@ $(document).on("keyup", "[name='blog_post[body]']", ()->
 )
 
 renderMarkdown = (ele)->
-  $e   = $(ele)
-  text = $e.val()
-  url  = $e.attr("data-url")
-
-  $.ajax({
-    url: url,
-    data: { "text": text }
-    success: (response) ->
-      $("[role='markdown-container']").html(response)
-    })
+  markdownedContent = marked( $(ele).val() )
+  $("[role='markdown-container']").html(markdownedContent)
