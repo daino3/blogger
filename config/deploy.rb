@@ -78,12 +78,5 @@ namespace :deploy do
     end
   end
 
-  desc "remove precompiled assets from local public folder"
-  task :remove_local_assets do
-    puts "Cleaning up locally compiled assets"
-    run "bundle exec rake assets:clean"
-  end
-  after "deploy:symlink_config", "deploy:remove_local_assets"
-
   before "deploy", "deploy:check_revision"
 end
