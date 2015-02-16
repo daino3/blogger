@@ -9,7 +9,7 @@ class Indexer
       # of instance callbacks (index_document and delete_document conditionals)
       case model.table_name
         when BlogPost.table_name
-          BlogPost.import force: true
+          BlogPost.includes(:tags).import force: true
         when Tag.table_name
           Tag.import force: true
         else

@@ -15,7 +15,6 @@ batch_action_admin_blog_categories POST       /admin/blog_categories/batch_actio
                admin_blog_category GET        /admin/blog_categories/:id(.:format)              admin/blog_categories#show
                                    PUT        /admin/blog_categories/:id(.:format)              admin/blog_categories#update
                                    DELETE     /admin/blog_categories/:id(.:format)              admin/blog_categories#destroy
-  render_markdown_admin_blog_posts GET        /admin/blog_posts/render_markdown(.:format)       admin/blog_posts#render_markdown
      batch_action_admin_blog_posts POST       /admin/blog_posts/batch_action(.:format)          admin/blog_posts#batch_action
                   admin_blog_posts GET        /admin/blog_posts(.:format)                       admin/blog_posts#index
                                    POST       /admin/blog_posts(.:format)                       admin/blog_posts#create
@@ -73,5 +72,5 @@ batch_action_admin_blog_categories POST       /admin/blog_categories/batch_actio
                                    DELETE     /blog_posts/:id(.:format)                         blog_posts#destroy
                          new_email GET        /emails/new(.:format)                             emails#new
                         send_email POST       /emails/send(.:format)                            emails#send_email
-                            search POST       /search(.:format)                                 search#find
+                            search GET        /search(.:format)                                 search#find
                               tags GET        /search_tags/:id(.:format)                        tags#show

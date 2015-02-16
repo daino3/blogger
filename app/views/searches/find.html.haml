@@ -1,0 +1,3 @@
+%div.row{style: 'min-height:65%;'}
+  = render partial: 'shared/tag_cloud', locals: {categories: @categories}
+  = render partial: 'shared/blog_posts', locals: {posts: @posts}

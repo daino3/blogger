@@ -5,11 +5,11 @@ module Searchable
   included do
     include Elasticsearch::Model
 
-    index_name "#{self.table_name}_#{Rails.env}"
+    index_name "#{self.table_name}"
     document_type self.table_name
 
     def self.search(query, options = {})
-      __elasticsearch__.search(query, options).records.to_a
+      __elasticsearch__.search(query, options)
     end
 
     def index_document(options={})
@@ -20,11 +20,6 @@ module Searchable
       __elasticsearch__.delete_document(options) rescue nil
     end
 
-    def as_indexed_json(options={})
-      klass = self.class
-      es_attributes = klass.mappings.to_hash[klass.document_type.to_sym][:properties].keys
-      attributes.symbolize_keys.pick(*es_attributes).as_json
-    end
   end
 end
 

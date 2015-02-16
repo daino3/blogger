@@ -1,0 +1,17 @@
+%div.large-9.columns
+  %div.row.search-results
+    - if posts.blank?
+      %p
+        Sorry, but we couldn't find anything interesting
+    - else
+      - posts.each do |post|
+        %div.large-1.columns.small-3.hide-for-small
+          = image_link(post.photo(:thumb))
+        %div.large-11.columns
+          %p
+            %strong
+              = link_to post.title, blog_post_path(post.id)
+          %p= post.summary
+          %h6= "#{post.comments.count} Comments | #{post.number_of_views} Views"
+        %hr
+  = paginate posts

@@ -37,13 +37,21 @@ class BlogPost < ActiveRecord::Base
   settings do
     mappings do
       indexes :id, :index => :no
-      indexes :created_at, :type => 'date', :index => :no
       # Search these fields
-      indexes :title, :analyzer => 'snowball'
-      indexes :summary, :analyzer => 'snowball'
-      indexes :body, :analyzer => 'snowball'
+      indexes :title, analyzer: :english
+      indexes :summary, analyzer: :english
+      indexes :body, analyzer: :english
       indexes :published_at
+      # relationships
+      indexes :tag_list, analyzer: :english
     end
+  end
+
+  def as_indexed_json(options = {})
+     as_json(
+       only: [ :id, :created_at, :title, :summary, :body, :published_at ],
+       methods: [ :tag_list ]
+     )
   end
 
   def update_published_at

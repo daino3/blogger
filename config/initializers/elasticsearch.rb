@@ -1,9 +1,9 @@
 es_file = ''
 # Point to feeds server
 if Rails.env.production?
-  es_file = Rails.root.join('..','shared', 'elasticsearch.yml')
+  es_file = Rails.root.join('../..','shared', 'elasticsearch.yml')
 else
-  es_file = Rails.root.join('..', 'elasticsearch.yml')
+  es_file = Rails.root.join('..', 'shared', 'elasticsearch.yml')
 end
 
 YAML.load_file(es_file)[Rails.env].each do |key, value|
@@ -11,3 +11,5 @@ YAML.load_file(es_file)[Rails.env].each do |key, value|
 end
 
 Elasticsearch::Model.client = Elasticsearch::Client.new({url: ENV['elastic_search_url'], logs: true})
+Kaminari::Hooks.init
+Elasticsearch::Model::Response::Response.__send__ :include, Elasticsearch::Model::Response::Pagination::Kaminari

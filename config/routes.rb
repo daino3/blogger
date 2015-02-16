@@ -12,7 +12,7 @@ Blogger::Application.routes.draw do
   resources :emails, only: [:new]
   post 'emails/send' => 'emails#send_email', as: 'send_email'
 
-  post 'search' => 'search#find', as: 'search'
+  get 'search' => 'searches#find', as: 'search'
   get 'search_tags/:id' => 'tags#show', as: 'tags'
 
 end

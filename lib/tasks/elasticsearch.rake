@@ -7,20 +7,12 @@ require 'elasticsearch_indexer'
 
 namespace :elasticsearch do
   namespace :import do
-    CLIENT = Elasticsearch::Model.client
-
-    task :all => [:blog_posts, :tags]
 
     task :blog_posts => :environment do
+      Elasticsearch::Model.client.indices.delete index: "_all" rescue nil
       post_task = Proc.new { Indexer.perform(BlogPost) }
       invoke_task &post_task
       puts "Done importing blog posts"
-    end
-
-    task :tags => :environment do
-      tag_task = Proc.new { Indexer.perform(Tag) }
-      invoke_task &tag_task
-      puts "Done importing tags"
     end
 
     def invoke_task &block
