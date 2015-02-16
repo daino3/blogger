@@ -1,3 +1,6 @@
 %div.row{style: 'min-height:65%;'}
+  %p.searched 
+    Displaying results for: 
+    %span.term="'#{@searched}'"
   = render partial: 'shared/tag_cloud', locals: {categories: @categories}
   = render partial: 'shared/blog_posts', locals: {posts: @posts}

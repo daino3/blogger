@@ -2,12 +2,12 @@ class SearchesController < ApplicationController
   HIGHLIGHTED_FIELDS = ["summary", "title", "body", "tag_list"]
   
   def find
-    text = params[:search][:text]
+    @searched = params[:search][:text]
     @categories = BlogCategory.all
     response    = BlogPost.search(
                               {query: {
                                 multi_match: {
-                                  query: text,
+                                  query: @searched,
                                   fields: HIGHLIGHTED_FIELDS 
                                 }
                               },

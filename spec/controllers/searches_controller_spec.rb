@@ -16,6 +16,7 @@ describe SearchesController, type: :controller do
     it 'instantiates the right variables' do
       get :find, search: {text: 'awesome sauce'} 
       
+      expect(assigns[:searched]).to eq('awesome sauce')
       expect(assigns[:posts]).to be_truthy
       expect(assigns[:categories]).to be_truthy
     end

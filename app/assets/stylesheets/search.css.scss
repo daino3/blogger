@@ -1,0 +1,12 @@
+.highlight {
+  background-color: yellow;
+}
+
+.searched {
+  @extend .panel;
+  margin-top: 10px;
+  font-size: 20px;
+  & .term{
+    font-style: italic;
+  }
+}
