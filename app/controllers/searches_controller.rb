@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   HIGHLIGHTED_FIELDS = ["summary", "title", "body", "tag_list"]
-  
+
   def find
     @searched = params[:search][:text]
     @categories = BlogCategory.all
@@ -8,11 +8,11 @@ class SearchesController < ApplicationController
                               {query: {
                                 multi_match: {
                                   query: @searched,
-                                  fields: HIGHLIGHTED_FIELDS 
+                                  fields: HIGHLIGHTED_FIELDS
                                 }
                               },
                                 highlight: {
-                                  pre_tags: ["<span class='highlight'>"],
+                                  pre_tags: ["<span class='highlighted-search'>"],
                                   post_tags: ["</span>"],
                                   fields: {
                                     summary: {},
@@ -31,7 +31,7 @@ class SearchesController < ApplicationController
   private
 
   def map_search_results(response)
-    hits = response.hits.hits 
+    hits = response.hits.hits
     hits.map do |hit|
       post = BlogPost.find(hit._source.id)
       post.instance_eval do

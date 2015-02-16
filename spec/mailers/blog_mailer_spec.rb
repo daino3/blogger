@@ -4,7 +4,7 @@ RSpec.describe BlogMailer, :type => :mailer do
   subject { BlogMailer }
 
 
-  describe '#send', :focus do
+  describe '#send' do
     it 'sends a correctly formatted email' do
       email = FactoryGirl.create(:email)
 
