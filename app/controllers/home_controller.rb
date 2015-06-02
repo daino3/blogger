@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     # implement this
     # @content_areas = [bio, edu, work, projects, skills]
 
-    posts = BlogPost.published.limit(5)
+    posts = BlogPost.published.order("published_at DESC").limit(5)
 
     @image = Photo.find_by_title("skyline")
 

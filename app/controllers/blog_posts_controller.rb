@@ -3,7 +3,7 @@ class BlogPostsController < ApplicationController
 
   def index
     @categories = BlogCategory.scoped.includes(:tags)
-    posts = BlogPost.published.includes(:comments)
+    posts = BlogPost.published.order("published_at DESC").includes(:comments)
     @posts = Kaminari.paginate_array(posts).page(params[:page]).per(5)
   end
 
