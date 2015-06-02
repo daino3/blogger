@@ -10,12 +10,11 @@
         %div.large-11.columns
           %p
             %strong
-              = link_to highlight(post, :title), blog_post_path(post)
+              = link_to highlight(post, :title), "#{blog_post_path(post)}"
           %p= highlight(post, :summary)
           - if post.respond_to?(:hi_body)
             %p= highlight(post, :body)
           - if post.respond_to?(:hi_tag_list)
             %p= highlight(post, :tag_list)
-          %h6= "#{post.comments.count} Comments | #{post.number_of_views} Views"
         %hr
   = paginate posts

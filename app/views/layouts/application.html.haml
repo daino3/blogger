@@ -24,5 +24,17 @@
   - else
     = render partial: "layouts/header"
   = yield
+  :javascript
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'dainjar';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    // comment count
+    (function () {
+       var s = document.createElement('script'); s.async = true;
+       s.type = 'text/javascript';
+       s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+       (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
 %footer
   = render partial: "layouts/footer"

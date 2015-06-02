@@ -3,8 +3,7 @@
 
 %div.row
   %div.large-12.columns
-    %div.panel
-      %h1= @post.title
+    %div.panel.blog-banner= @post.title
 
 %div.row
   %div.large-1.columns.small-3
@@ -14,21 +13,17 @@
 
     %hr
 
-    %div.comment-container
-      %ul.inline-list
-        %li= link_to "Comment", "#", role: "comment"
+    #disqus_thread
+    :javascript
+      /* * * CONFIGURATION VARIABLES * * */
+      var disqus_shortname = 'dainjar';
 
-      %div.comment-form{style: "display:none", role: "comment-container"}
-        = render partial: "comments/new", locals: { comment: Comment.new , blog_post: @post }
-
-    %h6= "#{@post.comments.count} Comments"
-    %hr
-    - @comments.each do |comment|
-      %div.row.posted-comment
-        %div.large-3.columns.small-3
-          %p= "Author: #{comment.author || 'anonymous'}"
-          %p= "Posted At: #{comment.created_at.strftime('%m/%d/%y')}"
-        %div.large-9.columns
-          %p= comment.body
-      %hr
-    = paginate @comments
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    %noscript
+      Please enable JavaScript to view the
+      %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.
