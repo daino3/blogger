@@ -11,6 +11,8 @@
           %p
             %strong
               = link_to highlight(post, :title), "#{blog_post_path(post)}"
+            %br
+            ="Published: #{post.published_at.strftime('%m/%d/%Y')}"
           %p= highlight(post, :summary)
           - if post.respond_to?(:hi_body)
             %p= highlight(post, :body)

@@ -44,11 +44,13 @@
     %hr
     %div.panel
       %h5= link_to @featured_post.title, blog_post_path(@featured_post)
+      %h6= @featured_post.published_at.strftime('%m/%d/%Y')
       %h6.subheader= @featured_post.summary
       %h6= link_to "Read More »", blog_post_path(@featured_post)
     - if @other_posts.present?
       - @other_posts.each do |post|
         %div.panel.hide-for-small
           %h5= link_to "#{post.title} »", blog_post_path(post)
+          %h6= @featured_post.published_at.strftime('%m/%d/%Y')
 
     =link_to "Go To Blog »", blog_posts_path, class: "right"
