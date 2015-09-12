@@ -9,7 +9,7 @@ Blogger::Application.routes.draw do
     resource :comments
   end
 
-  post 'emails/send' => 'emails#send_email', as: 'send_email'
+  post 'send_email' => 'emails#create', as: 'send_email'
 
   get 'search' => 'searches#find', as: 'search'
   get 'search_tags/:id' => 'tags#show', as: 'tags'

@@ -16,14 +16,19 @@
               %i.fi-social-github
 
       .small-12.medium-6.large-6.columns.right
+        - if flash[:failure].present?
+          - binding.pry
+        - elsif flash[:success].present?
+          - binding.pry
+
         %p.logo.show-for-small-only
           EMAIL ME
-        %form.footer-form.row
+        = simple_form_for(:email, url: send_email_path, method: 'post', html: {class: 'footer-form row', role: 'email-form'}) do |f|
           .small-12.columns
-            %label
-              %input#email{:placeholder => "Email Address", :type => "email"}/
+            = f.input :from, label: false, placeholder: 'Your Email'
           .small-12.columns
-            %label
-              %textarea#message{:placeholder => "Message"}
+            = f.input :subject, label: false, placeholder: 'Subject'
           .small-12.columns
-            %button.submit{:type => "submit", :value => "Submit"} Send
+            = f.text_area :body, label: false, placeholder: 'Message'
+          .small-12.columns
+            = f.submit "Send"

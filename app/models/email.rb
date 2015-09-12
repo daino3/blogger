@@ -5,6 +5,8 @@ class Email < ActiveRecord::Base
     /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   end
 
-  validates :from, format: { with: valid_email_regex }
   validates :to, format: { with: valid_email_regex }
+  validates :from, format: { with: valid_email_regex, message: 'Your email must be valid format.'}
+  validates :subject, presence: { message: 'Your subject was blank, homie.'}
+  validates :body, presence: { message: 'Your message was blank, homie.'}
 end
