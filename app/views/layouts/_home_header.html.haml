@@ -1,7 +1,9 @@
-%div.header-container.text-center
+%div.header-container.text-center.image-gradient-dynamic
   = image_tag(@image.get_url, class: "background-image")
-  %h3.background-image-text{style: "text-shadow: 2px 2px 2px black;"}
+  %div.overlay
+  %h3.background-image-text.copy
     "A mind that is stretched by new experiences can never return to its original dimensions"
+
   %div.row.home-header
     %div.large-3.columns.nav-section.site-title
       %h1.home-header-title= link_to "Dainjar.us"
@@ -9,8 +11,8 @@
     %div.large-5.columns.nav-section.hide-for-small
       = render partial: "shared/search_form"
 
-    %div.large-4.columns.nav-section.hide-for-small{style: "position:relative;"}
-      %ul.inline-list{style: "position:absolute; right: 0;"}
+    %div.large-4.columns.nav-section.nav-section-main.hide-for-small
+      %ul.inline-list
         %li= link_to "Blog", blog_posts_path
         %li.divider{style: "width:10px"}
         %li= link_to "Resume", resume_path, target: "_blank"

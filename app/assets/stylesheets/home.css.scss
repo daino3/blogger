@@ -1,24 +1,64 @@
 $header-height: 100px;
 
+$image-gradient-color-top: red;
+$transparency-top: 0.9;
+$image-gradient-color-bottom: green;
+$transparency-bottom: 0.7;
+$vertical-angle: 0deg;
+$image-gradient-color-left: #ADD8E6;
+$transparency-left: 0.8;
+$image-gradient-color-right: yellow;
+$transparency-right: 0.9;
+$horizontal-angle: 90deg;
+$overlay-trans-vert-top: transparentize($image-gradient-color-top, $transparency-top);
+$overlay-trans-vert-bot: transparentize($image-gradient-color-bottom, $transparency-bottom);
+$overlay-trans-hor-top: transparentize($image-gradient-color-left, $transparency-left);
+$overlay-trans-hor-bot: transparentize($image-gradient-color-right, $transparency-right);
+
 .header-container {
+  line-height: 0;
   position: relative;
   width: 100%; /* for IE 6 */
 
   .background-image {
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    filter: grayscale(100%);
+    height: auto;
+    left: 0;
+    position: relative;
+    top: 0;
     width: 100%;
   }
+
+  .overlay {
+    background: linear-gradient($vertical-angle, $overlay-trans-vert-top, $overlay-trans-vert-bot);
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    &:after {
+      background: linear-gradient($horizontal-angle, $overlay-trans-hor-top, $overlay-trans-hor-bot);
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      content: '';
+      display: block;
+    }
+  }
+
   .background-image-text {
     color: white;
     font-family: "Papyrus";
     font-style: italic;
     left: 0;
     position: absolute;
+    text-shadow: 2px 2px 2px black;
     top: 150;
     width: 100%;
   }
+
   .home-header {
     @include top-centered;
     height: $header-height;
@@ -26,6 +66,15 @@ $header-height: 100px;
     .site-title { top: 5px;}
     .home-header-title {margin: 0px;}
   }
+
+  .nav-section-main {
+    position: relative;
+    ul {
+      position: absolute;
+      right: 0;
+    }
+  }
+
   .nav-section-small {
     position:absolute;
     left:0;
