@@ -5,23 +5,19 @@
   font-size: 1.2rem;
   padding: 1rem;
 
-  .social a {
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    background-color: #33383b;
-    border-radius: 2px;
-    font-size: 1.5rem;
-    color: #fff;
-    text-align: center;
-    line-height: 2rem;
-    margin: 0 3px 0 0;
-  }
-
-  .copywrite {
-    color: #8f9296;
-    font-size: 0.875rem;
-    margin: 1rem 0 1rem 0;
+  .social  {
+    a {
+      display: inline-block;
+      width: 3rem;
+      height: 3rem;
+      background-color: #33383b;
+      border-radius: 2px;
+      font-size: 3rem;
+      color: #fff;
+      text-align: center;
+      line-height: 2rem;
+      margin: 0 15px 0 0;
+    }
   }
 
   .footer-form {
@@ -37,6 +33,9 @@
       color: #d1d2d2;
       padding: 1.3rem;
     }
+    textarea {
+      height: 150px;
+    }
 
     label {
       color: #fff;
@@ -46,54 +45,15 @@
     }
 
     .submit {
-      border-radius: 3px;
+      border-radius: 5px;
       background-color: #33383b;
       color: #ffffff;
       border: 0;
       padding: 1rem 3.5rem;
       font-weight: bold;
-      float: right;
+      float: left;
       margin: 0 1rem 2rem 0;
-    }
-  }
-
-  .footer-links a {
-    list-style: none;
-    font-weight: normal;
-    color: #fff;
-    padding: 3rem 0 2rem;
-    margin: 0;
-    font-size: 0.875rem;
-
-    &::after {
-      content: "•";
-      padding: 0 0.2rem 0 0.4rem;
-    }
-
-    &:last-child::after {
-      content: "";
-      padding: 0 0.4rem 0 0.8rem;
-    }
-  }
-
-  @media only screen and (min-width: 40.063em) {
-    padding: 4rem;
-
-    p {
-      text-align: left;
-    }
-
-    .social {
-      text-align: left;
-      margin: 0;
-    }
-
-    .footer-form {
-      .contact {
-        position: absolute;
-        left: -45%;
-        top: 10%;
-      }
+      width: 100%;
     }
   }
 }

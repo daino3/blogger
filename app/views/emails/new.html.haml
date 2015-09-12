@@ -1,8 +1,0 @@
-.email-container{role: 'email-container'}
-  %div.close
-    = link_to "Close", "#", role: "close-email"
-  = simple_form_for @email, url: send_email_path, html: { role: "send-email"} do |f|
-    = f.input :from
-    = f.input :subject, input_html: { value: "Hi Dain..." }
-    = f.input :body, input_html: { rows: 8, value: "[Insert Your Message]" }
-    = f.button :submit, "Send", role: 'send-email'

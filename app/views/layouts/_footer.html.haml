@@ -1,32 +1,29 @@
 %link{:href => "http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css", :rel => "stylesheet"}
   %footer.footer
     .row
-      .small-12.medium-6.medium-push-6.columns
-        %p.logo.show-for-small-only
-          EMAIL ME
-        %form.footer-form
-          .row
-            .medium-9.medium-push-3.columns
-              %label
-                %label.contact{:for => "email"} Contact Us
-                %input#email{:placeholder => "Email Address", :type => "email"}/
-          .row
-            .medium-9.medium-push-3.columns
-              %label
-                %textarea#message{:placeholder => "Message", :rows => "5"}
-            .row
-              .medium-9.medium-push-3.columns
-                %button.submit{:type => "submit", :value => "Submit"} Send
-      .small-12.medium-6.medium-pull-6.columns
+      .small-12.medium-6.large-6.columns.left
         %p.logo.hide-for-small-only
           LET'S STAY IN TOUCH
-        %ul.inline-list.social
-          %a{:href => "https://www.facebook.com/dainhall?fref=ts"}
-            %i.fi-social-facebook
-          %a{:href => "https://twitter.com/donelikedainer?lang=en"}
-            %i.fi-social-twitter
-          %a{:href => "https://www.linkedin.com/profile/view?id=106601609&trk=nav_responsive_tab_profile_pic"}
-            %i.fi-social-linkedin
-          %a{:href => "https://github.com/daino3"}
-            %i.fi-social-github
-        %p.copywrite Copywrite not copywrite © 2015
+        .row
+          %ul.social
+            %a{:href => "https://www.facebook.com/dainhall?fref=ts"}
+              %i.fi-social-facebook
+            %a{:href => "https://twitter.com/donelikedainer?lang=en"}
+              %i.fi-social-twitter
+            %a{:href => "https://www.linkedin.com/profile/view?id=106601609&trk=nav_responsive_tab_profile_pic"}
+              %i.fi-social-linkedin
+            %a{:href => "https://github.com/daino3"}
+              %i.fi-social-github
+
+      .small-12.medium-6.large-6.columns.right
+        %p.logo.show-for-small-only
+          EMAIL ME
+        %form.footer-form.row
+          .small-12.columns
+            %label
+              %input#email{:placeholder => "Email Address", :type => "email"}/
+          .small-12.columns
+            %label
+              %textarea#message{:placeholder => "Message"}
+          .small-12.columns
+            %button.submit{:type => "submit", :value => "Submit"} Send
