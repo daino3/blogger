@@ -1,11 +1,31 @@
-.email-container {
-  .close { margin-bottom: 10px;}
-  padding: $default-padding;
-  background-color: black;
-  width: 500px;
-  height: auto;
-  color: white;
-  label {color: white;}
-  textarea { height: auto;}
-  form { margin-bottom: 0; }
+// flat colors
+
+.incorrect {
+  border-left-color: $alert;
+  background-color: scale-color($alert, $lightness: 40%);
 }
+
+.correct {
+  border-left-color: $success;
+  background-color: scale-color($success, $lightness: 40%);
+}
+
+.alert-box {
+  padding: 1.3rem;
+  border-width: 0 0 0 0.35rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  text-align: left;
+
+  &.radius {border-radius: 0.6rem;}
+
+  &.alert {
+    @extend .incorrect;
+    strong {color: $alert;}
+  }
+  &.success {
+    @extend .correct;
+    strong {color: $success;}
+  }
+}
+

@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require foundation
 //= require jquery-ui
+//= require_tree ./templates
+//= require underscore
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

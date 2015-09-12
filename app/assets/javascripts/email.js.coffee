@@ -1,10 +1,21 @@
 $ ->
-  $("[role='render-email-popup']").on('click', (e)->
+  $("[role='email-form']").on('submit', (e)->
     e.preventDefault()
-    emailUrl = $(this).attr('data-email-path')
-    $.get(emailUrl, (response)->
-      $("body").append(response)
-      $("[role='email-container']").center()
+    form = $(this)
+    emailUrl = form.attr('action')
+    $.ajax({type: 'post', url: emailUrl, data: form.serialize()}
+    ).done((response)->
+      $messageContainer = $("[role='email-message-container']")
+      $messageContainer.empty()
+      if response.errors
+        _.each response.errors, (error)->
+          compiledTemplate = _.template(JST['templates/failure'])
+          $messageContainer.append(compiledTemplate({error: error[0]}))
+      else
+        compiledTemplate = _.template(JST['templates/success'])
+        $messageContainer.append(compiledTemplate({message: response.message}))
+        form[0].reset()
+        noColor($("[name='email[from]']"))
     )
   )
 
@@ -13,28 +24,14 @@ $(document).on('keyup', "[name='email[from]']", ()->
   if looksLikeEmail($e.val()) then turnGreen($e) else turnRed($e)
 )
 
-$(document).on('click', "[role='send-email']", (e)->
-  e.preventDefault()
-  $e = $(this)
-  $emailField = $("[name='email[from]']")
-  if looksLikeEmail($emailField.val())
-    $e.trigger('submit');
-  else
-    turnRed($emailField)
-)
-
-$(document).on('click', "[role='close-email']", (e)->
-  e.preventDefault()
-  $("[role='email-container']").remove()
-)
-
 looksLikeEmail = (input)->
   input.match(/^[\w\d.]+@[\w]+\.[\w]+$/)
 
 turnRed = ($ele)->
-  $ele.css('background-color', 'rgba(244, 44, 44, 0.9)')
-  $ele.css('color', 'white')
+  $ele.css('background-color', '#f77d71')
 
 turnGreen = ($ele)->
   $ele.css('background', '#538044')
-  $ele.css('color', 'white')
+
+noColor = ($ele) ->
+  $ele.css('background', '#1f2022')

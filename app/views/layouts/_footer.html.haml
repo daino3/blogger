@@ -23,6 +23,7 @@
 
         %p.logo.show-for-small-only
           EMAIL ME
+        %div{role: 'email-message-container'}
         = simple_form_for(:email, url: send_email_path, method: 'post', html: {class: 'footer-form row', role: 'email-form'}) do |f|
           .small-12.columns
             = f.input :from, label: false, placeholder: 'Your Email'
