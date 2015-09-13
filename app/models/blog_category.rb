@@ -7,5 +7,5 @@ class BlogCategory < ActiveRecord::Base
 
   validates_uniqueness_of :name
 
-  scope :with_posts, ->() { where(id: BlogPost.pluck(:blog_category_id)) }
+  scope :with_published_posts, ->() { where(id: BlogPost.published.pluck(:blog_category_id)) }
 end

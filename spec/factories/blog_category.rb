@@ -5,7 +5,7 @@ FactoryGirl.define do
 
   trait :with_blogs do
     after(:create) do |blog_cat|
-      FactoryGirl.create(:blog_post, blog_category: blog_cat)
+      FactoryGirl.create(:blog_post, blog_category: blog_cat, published: true)
     end
   end
 end

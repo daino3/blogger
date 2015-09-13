@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
 
   def find
     @searched = params[:search][:text]
-    @categories = BlogCategory.with_posts.includes(:tags)
+    @categories = BlogCategory.with_published_posts.includes(:tags)
     response    = BlogPost.search(
                               {query: {
                                 multi_match: {
