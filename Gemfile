@@ -12,6 +12,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'haml'
   gem 'jquery-ui-rails'
+  gem 'jquery-rails'
   gem 'zurb-foundation'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -19,21 +20,27 @@ group :assets do
   gem 'underscore-rails'
 end
 
-group :development, :test do
+group :development do
   gem "better_errors"
-  gem 'jazz_hands'
   gem "binding_of_caller"
-  gem 'factory_girl_rails'
-  gem "faker"
-  gem 'letter_opener'
   gem 'rack-mini-profiler'
   gem 'railroady' # schema visualizer
+end
+
+group :development, :test do
+  gem 'jazz_hands'
+  gem "faker"
+  gem 'letter_opener'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
 
 gem 'spring', group: :development
 gem "spring-commands-rspec", group: :development
-
 gem 'activeadmin'
 gem 'capistrano'
 gem "capistrano-db-tasks", require: false
@@ -41,7 +48,6 @@ gem 'elasticsearch-extensions'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem "friendly_id"
-gem 'jquery-rails'
 gem 'kaminari'
 gem "paperclip"
 gem 'pg'
