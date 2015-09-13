@@ -2,7 +2,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
-    @categories = BlogCategory.all
+    @categories = BlogCategory.with_posts.includes(:tags)
     posts = @tag.blog_posts
 
     @posts = Kaminari.paginate_array(posts).page(params[:page]).per(5)
