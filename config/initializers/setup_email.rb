@@ -16,11 +16,12 @@ ActionMailer::Base.smtp_settings = {
   :user_name            => ENV["user_name"],
   :password             => ENV["password"],
   :authentication       => "plain",
-  :enable_starttls_auto => true
+  :enable_starttls_auto => true,
+  :openssl_verify_mode  => 'none'
 }
 
 if Rails.env.production?
-  # do something else
+  ActionMailer::Base.default_url_options[:host] = "dainjar.us"
 elsif
   ActionMailer::Base.default_url_options[:host] = "localhost:3000"
 end

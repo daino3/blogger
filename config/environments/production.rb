@@ -49,7 +49,7 @@ Blogger::Application.configure do
   # config.assets.precompile += %w( vendor/modernizr.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Enable threaded mode
   # config.threadsafe!
