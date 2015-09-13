@@ -2,6 +2,20 @@ require "rails_helper"
 
 describe BlogPost do
 
+  describe '#index_for_search (after_save)' do
+    let(:post) { FactoryGirl.build(:blog_post) }
+
+    it 'indexes if its published' do
+      expect(post).to receive(:index_document)
+      post.update_attributes!(published: true)
+    end
+
+    it 'destroys it from the index if its not published' do
+      expect(post).to receive(:delete_document)
+      post.update_attributes!(published: false)
+    end
+  end
+
   describe "#recent" do
     def sorted(posts)
       sorted = posts.each_with_index.map do |post, index|

@@ -25,6 +25,7 @@ class BlogPost < ActiveRecord::Base
                             :path => ":rails_root/app/assets/images/uploads/:style/:basename.:extension"
 
   before_save :update_published_at, if: Proc.new { |i| i.published_changed? }
+  after_save :index_for_search
 
   validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 5.megabytes
@@ -44,6 +45,14 @@ class BlogPost < ActiveRecord::Base
       # relationships
       indexes :tag_list, analyzer: :english
     end
+  end
+
+  def index_for_search
+    if published?
+      index_document
+    else
+      delete_document
+    end rescue nil # rescue if not indexed
   end
 
   def as_indexed_json(options = {})
