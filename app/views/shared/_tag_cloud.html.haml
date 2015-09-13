@@ -1,8 +1,8 @@
 %div.large-3.columns.panel.hide-for-small
-  %h5{style: 'color:black'}= link_to "Topics", "#"
+  %h5{style: 'color:black'}= link_to "Topics", "javascript:void(0);"
   %div.tagging-container
     - categories.each_with_index do |category, index|
       %section.tag-category{ role: "expandable" }
-        %h5.title= link_to "#{category.name} (#{category.tags.count})", "#"
+        %h5.title= link_to "#{category.name} (#{category.tags.count})", "javascript:void(0);"
         %div{ role: "tag-well", style: "display:none", data: { category_number: index + 1 } }
           = render partial: "blog_posts/tag_well", locals: { category: category }
