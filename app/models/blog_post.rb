@@ -47,6 +47,10 @@ class BlogPost < ActiveRecord::Base
     end
   end
 
+  def pretty_published_at
+    published_at ? published_at.strftime('%m/%d/%Y') : nil
+  end
+
   def index_for_search
     if published?
       index_document

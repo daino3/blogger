@@ -1,5 +1,8 @@
 class Tag < ActiveRecord::Base
   include Searchable
+  extend FriendlyId
+
+  friendly_id :name, use: :slugged
 
   attr_accessible :name, :blog_category_id
 
