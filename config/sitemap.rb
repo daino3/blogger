@@ -17,5 +17,9 @@ SitemapGenerator::Sitemap.create do
     add blog_post_path(post), :changefreq => 'weekly', :lastmod => post.created_at, :priority => 0.8
   end
 
+  Tag.find_each do |tag|
+    add tag_path(tag), :changefreq => 'weekly', :lastmod => tag.created_at, :priority => 0.8
+  end
+
   add 'assets/uploads/original/resume.pdf', :changefreq => 'monthly', :priority => 0.7
 end
