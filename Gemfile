@@ -43,7 +43,8 @@ gem 'spring', group: :development
 gem "spring-commands-rspec", group: :development
 gem 'activeadmin'
 gem 'capistrano'
-gem "capistrano-db-tasks", require: false
+gem 'capistrano-db-tasks', require: false
+gem 'clockwork'
 gem 'elasticsearch-extensions'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
@@ -55,4 +56,5 @@ gem 'pygments.rb'
 gem 'redcarpet'
 gem 'rmagick'
 gem 'simple_form'
+gem 'sitemap_generator'
 gem 'unicorn'
