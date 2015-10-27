@@ -36,7 +36,12 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
+after "deploy", "run_migrations"
 after "deploy:cleanup", "setup:clockwork"
+
+task :run_migrations, roles: :app do
+  run "rake db:migrate"
+end
 
 namespace :setup do
   task :clockwork, roles: :app do
