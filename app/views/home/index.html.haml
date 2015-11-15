@@ -51,6 +51,6 @@
       - @other_posts.each do |post|
         %div.panel.hide-for-small
           %h5= link_to "#{post.title} »", blog_post_path(post)
-          %h6= @featured_post.pretty_published_at
+          %h6= post.pretty_published_at
 
     =link_to "Go To Blog »", blog_posts_path, class: "right"
