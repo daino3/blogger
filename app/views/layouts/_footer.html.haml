@@ -26,5 +26,7 @@
             = f.input :subject, label: false, placeholder: 'Subject'
           .small-12.columns
             = f.text_area :body, label: false, placeholder: 'Message'
+          .hide
+            = f.check_box :bot_box
           .small-12.columns
             = f.submit "Send"
