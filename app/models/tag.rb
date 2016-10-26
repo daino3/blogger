@@ -4,7 +4,7 @@ class Tag < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
-  attr_accessible :name, :blog_category_id
+  attr_accessible :name, :blog_category_id, :slug
 
   belongs_to :blog_category
   has_many   :taggings

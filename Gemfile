@@ -28,7 +28,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'jazz_hands'
+  gem 'pry'
   gem "faker"
   gem 'letter_opener'
 end
@@ -39,8 +39,6 @@ group :test do
   gem 'rspec-rails'
 end
 
-gem 'spring', group: :development
-gem "spring-commands-rspec", group: :development
 gem 'activeadmin'
 gem 'capistrano'
 gem 'capistrano-db-tasks', require: false
