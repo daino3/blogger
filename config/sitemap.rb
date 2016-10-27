@@ -3,7 +3,7 @@ require 'pry'
 # local: rake sitemap:refresh:no_ping
 # prod: rake sitemap:refresh
 
-SitemapGenerator::Sitemap.default_host = "https://www.dainger.us/"
+SitemapGenerator::Sitemap.default_host = "http://www.dainger.us/"
 SitemapGenerator::Sitemap.verbose = true
 SitemapGenerator::Sitemap.create_index = :auto
 SitemapGenerator::Sitemap.public_path = 'public/'
