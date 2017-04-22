@@ -18,3 +18,5 @@ config/smtp_settings.yml
 
 # bz2 file
 /db/blogger_development*
+
+public/
