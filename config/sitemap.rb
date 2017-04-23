@@ -11,15 +11,15 @@ SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
 SitemapGenerator::Sitemap.create do
 
-  add blog_posts_path, :changefreq => 'weekly', :priority => 0.9
+  add blog_posts_path, changefreq: 'weekly', priority: 0.9
 
-  BlogPost.find_each do |post|
-    add blog_post_path(post), :changefreq => 'weekly', :lastmod => post.created_at, :priority => 0.8
+  BlogPost.includes(:tags).published.all do |post|
+    add blog_post_path(post), changefreq: 'weekly', lastmod: post.created_at, priority: 0.8
+
+    post.tags.each do |tag|
+      add tag_path(tag), changefreq: 'weekly', lastmod: tag.created_at, priority: 0.8
+    end
   end
 
-  Tag.find_each do |tag|
-    add tag_path(tag), :changefreq => 'weekly', :lastmod => tag.created_at, :priority => 0.8
-  end
-
-  add 'assets/uploads/original/resume.pdf', :changefreq => 'monthly', :priority => 0.7
+  add 'assets/uploads/original/resume.pdf', changefreq: 'monthly', priority: 0.7
 end

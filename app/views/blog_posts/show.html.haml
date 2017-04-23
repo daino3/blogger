@@ -1,6 +1,12 @@
-%div.row
+= content_for(:title, @post.title)
+= meta_tag(:description, @post.summary)
+= meta_tag(:keywords, @post.tags.pluck(:name).join(','))
+
+%div.row{ style: "margin-top:25px;" }
   %div.large-12.columns
-    %div.panel.blog-banner= @post.title
+    %div.panel
+      %h1.blog-banner= @post.title
+      %p= @post.summary
 
 %div.row
   %div.large-1.columns.small-3

@@ -1,7 +1,15 @@
 %head
-  %title Dainger.us - Dain Hall's Blog
+  %title
+    - if content_for?(:title)
+      = yield(:title) + " | Dainger.us - Dain Hall's Blog"
+    - else
+      = "Dainger.us - Dain Hall's Blog"
+
+
   %meta{ charset: "utf-8"}
-  %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0"}
+  %meta{ name: "viewport",    content: "width=device-width, initial-scale=1.0"}
+  %meta{ name: "description", content: yield_meta_tag(:description, "Dain Hall's blog on software, life, and random thoughts") }
+  %meta{ name: "keywords",    content: yield_meta_tag(:keywords, "DainHall,Blog,Software,Life,Work,Play") }
   = stylesheet_link_tag    "application"
   = javascript_include_tag "application"
   = csrf_meta_tags
@@ -16,8 +24,6 @@
     ga('create', 'UA-46222711-1', 'auto');
     ga('send', 'pageview');
 
-  %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
-  %meta{charset: "utf-8"}
 %body
   - if request.path == root_path
     = render partial: "layouts/home_header"

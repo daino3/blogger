@@ -8,7 +8,7 @@ class BlogPostsController < ApplicationController
   end
 
   def show
-    @post = BlogPost.find(params[:id])
+    @post = BlogPost.includes(:tags).find(params[:id])
   end
 
 end
